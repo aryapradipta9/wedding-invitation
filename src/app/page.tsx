@@ -8,6 +8,7 @@ import Typewriter from "typewriter-effect";
 import Hero1 from "../../public/1.jpg";
 import Hero2 from "../../public/2.jpg";
 import Hero3 from "../../public/3.png";
+import Bride from "../../public/bride.JPG";
 import Image2 from "../../public/2.gif";
 import ImageCol1 from "../../public/col_1.jpg";
 import ImageCol1_1 from "../../public/col_1_1.jpg";
@@ -38,6 +39,8 @@ import Mahita from "../../public/mahita.jpg";
 import Separator from "../../public/separator_1.png";
 import Background from "../../public/bg.png";
 import PageTwo from "../../public/pg2.png";
+import PageThree from "../../public/pg3.png";
+
 import FrontLogo from "../../public/front-logo.png";
 
 import { Toaster } from "react-hot-toast";
@@ -159,17 +162,17 @@ export default function Home() {
         <div
           style={{
             backgroundImage: `url(${PageTwo.src})`,
-            width: "100%",
-            height: "100%",
+            backgroundSize: "cover",
+            width: videoWidth,
           }}
-          className="flex flex-col items-center pt-24"
+          className="flex flex-col items-center pt-12"
         >
           <Image
             src={Hero1.src}
             width="0"
             height="0"
             sizes="100vw"
-            className="w-2/3 h-auto my-1"
+            className="w-1/2 h-auto my-1"
             alt={"hero-one"}
           />
           <Image
@@ -177,7 +180,7 @@ export default function Home() {
             width="0"
             height="0"
             sizes="100vw"
-            className="w-2/3 h-auto my-1"
+            className="w-1/2 h-auto my-1"
             alt={"hero-two"}
           />
           <Image
@@ -185,15 +188,15 @@ export default function Home() {
             width="0"
             height="0"
             sizes="100vw"
-            className="w-2/3 h-auto my-1"
+            className="w-1/2 h-auto my-1"
             alt={"hero-three"}
           />
 
           <p
             style={{
-              fontFamily: "daydream",
+              fontFamily: "amsterdam",
             }}
-            className="text-xl p-5"
+            className="text-md p-2 text-center"
           >
             &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan ini
             tanpa terpisahkan, panjang umur, semoga pernikahan ini dianugrahkan
@@ -203,12 +206,96 @@ export default function Home() {
 
           <p
             style={{
-              fontFamily: "daydream",
+              fontFamily: "amsterdam",
             }}
-            className="text-xl p-5"
+            className="text-md p-2 mb-5"
           >
             Reg Weda X. 85.42
           </p>
+        </div>
+        <div
+          style={{
+            backgroundImage: `url(${PageThree.src})`,
+            backgroundSize: "cover",
+            width: videoWidth,
+            height: "100vh",
+          }}
+          className="flex flex-col items-center py-24"
+        >
+          <div className="flex flex-row items-center mx-8">
+            <Image
+              src={Bride.src}
+              width="0"
+              height="0"
+              sizes="100%"
+              className="h-auto w-1/3 my-1 rounded-t-full"
+              alt={"bride"}
+            />
+            <div className="flex flex-col ml-4">
+              <p
+                style={{
+                  fontFamily: "amsterdam",
+                }}
+                className="text-2xl py-5 italic font-light"
+              >
+                The Bride
+              </p>
+              <p
+                style={{
+                  fontFamily: "daydream",
+                  color: "#0c006c",
+                }}
+                className="text-2xl"
+              >
+                Made Laksmiani Dewi
+              </p>
+              <p
+                style={{
+                  fontFamily: "glacial-indifference",
+                }}
+                className="text-sm"
+              >
+                Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row-reverse	 items-center mx-8">
+            <Image
+              src={Bride.src}
+              width="0"
+              height="0"
+              sizes="100%"
+              className="h-auto w-1/3 my-1 rounded-t-full"
+              alt={"bride"}
+            />
+            <div className="flex flex-col ml-4">
+              <p
+                style={{
+                  fontFamily: "amsterdam",
+                }}
+                className="text-2xl py-5 italic font-light"
+              >
+                The Bride
+              </p>
+              <p
+                style={{
+                  fontFamily: "daydream",
+                  color: "#0c006c",
+                }}
+                className="text-2xl"
+              >
+                Made Laksmiani Dewi
+              </p>
+              <p
+                style={{
+                  fontFamily: "glacial-indifference",
+                }}
+                className="text-sm"
+              >
+                Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+              </p>
+            </div>
+          </div>
         </div>
         {/* <div className="relative">
           <ReactPlayer

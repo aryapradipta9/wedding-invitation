@@ -28,3 +28,8 @@ body {
   font-family: "daydream";
   src: url("/fonts/daydream.ttf");
 }
+
+@font-face {
+  font-family: "amsterdam";
+  src: url("/fonts/Amsterdam.ttf");
+}
