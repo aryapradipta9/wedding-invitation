@@ -12,6 +12,7 @@ import Bride from "../../public/bride.jpg";
 import Background from "../../public/bg.png";
 import PageTwo from "../../public/pg2.png";
 import PageThree from "../../public/pg3.png";
+import PageFour from "../../public/pg4.png";
 
 import FrontLogo from "../../public/front-logo.png";
 
@@ -21,6 +22,8 @@ import { notFound, useParams } from "next/navigation";
 import AnimateOnScroll from "./animate";
 import { useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { Button } from "./button";
+import { Calendar } from "./calendar";
 
 export default function Home() {
   const { id } = useParams();
@@ -127,15 +130,10 @@ export default function Home() {
               >
                 {"wedding reception"}
               </p>
-              <button
-                className="p-2 my-2 font-sans rounded-xl"
-                style={{
-                  backgroundColor: "#f0c37c",
-                }}
+              <Button
                 onClick={handleBukaUndangan}
-              >
-                buka undangan
-              </button>
+                text={"buka undangan"}
+              ></Button>
             </div>
           </div>
         </div>
@@ -278,6 +276,79 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: `url(${PageFour.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+            }}
+            className="flex flex-col items-center content-center pt-8"
+          >
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-2xl py-5 italic font-light text-white"
+            >
+              Mark your calendar
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+              }}
+              className="text-2xl"
+            >
+              18 Mei 2024
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+              }}
+              className="text-sm"
+            >
+              18.00 - 20.00
+            </p>
+            <Calendar></Calendar>
+            <Button
+              onClick={() => {}}
+              text={"Jadwalkan via Google Kalender"}
+            ></Button>
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-2xl py-5 italic font-light text-white"
+            >
+              Venue
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+              }}
+              className="text-sm"
+            >
+              The Gallery CIBIS Park
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+                width: "60%",
+              }}
+              className="text-sm text-center"
+            >
+              Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
+            </p>
+            <Button
+              onClick={() => {
+                window.open("https://maps.app.goo.gl/A9GikxuTd7SJpn5o8");
+              }}
+              text={"Lihat di peta"}
+            ></Button>
           </div>
         </div>
         {/* <div className="relative">
