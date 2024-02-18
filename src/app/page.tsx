@@ -5,7 +5,9 @@ import ReactPlayer from "react-player";
 import { dancingScript, sansSerif } from "./font";
 import { cn } from "./utils";
 import Typewriter from "typewriter-effect";
-import Image1 from "../../public/0_1.jpg";
+import Hero1 from "../../public/1.jpg";
+import Hero2 from "../../public/2.jpg";
+import Hero3 from "../../public/3.png";
 import Image2 from "../../public/2.gif";
 import ImageCol1 from "../../public/col_1.jpg";
 import ImageCol1_1 from "../../public/col_1_1.jpg";
@@ -35,6 +37,7 @@ import Gery from "../../public/gery.jpg";
 import Mahita from "../../public/mahita.jpg";
 import Separator from "../../public/separator_1.png";
 import Background from "../../public/bg.png";
+import PageTwo from "../../public/pg2.png";
 import FrontLogo from "../../public/front-logo.png";
 
 import { Toaster } from "react-hot-toast";
@@ -80,13 +83,6 @@ export default function Home() {
           "visible"
         )}
       >
-        {image && (
-          <ImagePreview
-            src={image}
-            width={videoWidth}
-            onClose={() => setImage(null)}
-          />
-        )}
         <div className="relative">
           <Image
             src={Background}
@@ -160,6 +156,60 @@ export default function Home() {
           </div>
         </div>
         <Toaster />
+        <div
+          style={{
+            backgroundImage: `url(${PageTwo.src})`,
+            width: "100%",
+            height: "100%",
+          }}
+          className="flex flex-col items-center pt-24"
+        >
+          <Image
+            src={Hero1.src}
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-2/3 h-auto my-1"
+            alt={"hero-one"}
+          />
+          <Image
+            src={Hero2.src}
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-2/3 h-auto my-1"
+            alt={"hero-two"}
+          />
+          <Image
+            src={Hero3.src}
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-2/3 h-auto my-1"
+            alt={"hero-three"}
+          />
+
+          <p
+            style={{
+              fontFamily: "daydream",
+            }}
+            className="text-xl p-5"
+          >
+            &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan ini
+            tanpa terpisahkan, panjang umur, semoga pernikahan ini dianugrahkan
+            putra-putri dan cucu yang memberi penghiburan, tinggal di rumah yang
+            penuh kebahagiaan&#34;
+          </p>
+
+          <p
+            style={{
+              fontFamily: "daydream",
+            }}
+            className="text-xl p-5"
+          >
+            Reg Weda X. 85.42
+          </p>
+        </div>
         {/* <div className="relative">
           <ReactPlayer
             url={"/hero.mp4"}
