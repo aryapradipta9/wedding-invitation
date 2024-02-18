@@ -18,3 +18,13 @@
 
 body {
 }
+
+@font-face {
+  font-family: "glacial-indifference";
+  src: url("/fonts/GlacialIndifference-Regular.otf");
+}
+
+@font-face {
+  font-family: "daydream";
+  src: url("/fonts/daydream.ttf");
+}

@@ -34,6 +34,9 @@ import ImageCol6_3 from "../../public/col_6_4.jpg";
 import Gery from "../../public/gery.jpg";
 import Mahita from "../../public/mahita.jpg";
 import Separator from "../../public/separator_1.png";
+import Background from "../../public/bg.png";
+import FrontLogo from "../../public/front-logo.png";
+
 import { Toaster } from "react-hot-toast";
 import Submission from "./submission";
 import { notFound, useParams } from "next/navigation";
@@ -43,7 +46,6 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export default function Home() {
   const { id } = useParams();
-  const [isLoadingVideo, setIsLoadingVideo] = useState(true);
   const [videoWidth, setVideoWidth] = useState(0);
   const [videoHeight, setVideoHeight] = useState(0);
   const [name, setName] = useState<string | null | undefined>(undefined);
@@ -68,14 +70,14 @@ export default function Home() {
   const end = new Date("2023-12-16");
 
   const days = Math.round(Math.abs((start.getTime() - end.getTime()) / oneDay));
+  console.log(videoWidth);
 
   return (
     <>
-      {isLoadingVideo && <p>Loading...</p>}
       <main
         className={cn(
           "flex min-h-screen flex-col items-center justify-start bg-white max-w-[450px] relative",
-          isLoadingVideo ? "hidden" : "visible"
+          "visible"
         )}
       >
         {image && (
@@ -85,8 +87,80 @@ export default function Home() {
             onClose={() => setImage(null)}
           />
         )}
-        <Toaster />
         <div className="relative">
+          <Image src={Background} alt="bg" width={videoWidth} />
+          <div
+            style={{
+              height: videoHeight,
+            }}
+            className="flex flex-col items-center absolute top-0 w-full z-10 mt-24"
+          >
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+              }}
+              className="text-4xl"
+            >
+              Dear Resyo
+            </p>
+            <p
+              style={{
+                fontFamily: "daydream",
+              }}
+              className="text-xl "
+            >
+              {"you're invited to"}
+            </p>
+            <div className="flex flex-row mt-16 mb-8 ">
+              <p
+                style={{
+                  fontFamily: "daydream",
+                  color: "#0c006c",
+                }}
+                className="text-9xl "
+              >
+                {"A"}
+              </p>
+              <p
+                style={{
+                  fontFamily: "daydream",
+                  color: "#0c006c",
+                  transform: "rotate(10deg)",
+                }}
+                className="text-9xl mt-5"
+              >
+                {"L"}
+              </p>
+            </div>
+            <p
+              style={{
+                fontFamily: "daydream",
+                color: "#0c006c",
+              }}
+              className="text-5xl"
+            >
+              {"Arya & Laksmi"}
+            </p>
+            <p
+              style={{
+                fontFamily: "daydream",
+              }}
+              className="text-xl"
+            >
+              {"wedding reception"}
+            </p>
+            <button
+              className="p-2 my-2 font-sans rounded-xl"
+              style={{
+                backgroundColor: "#f0c37c",
+              }}
+            >
+              buka undangan
+            </button>
+          </div>
+        </div>
+        <Toaster />
+        {/* <div className="relative">
           <ReactPlayer
             url={"/hero.mp4"}
             controls={false}
@@ -225,7 +299,7 @@ export default function Home() {
             <div className="relative h-[200px] w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.2792415061267!2d115.23871231178799!3d-8.664971488150677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240613bbb02bb%3A0x26437fa8b7acd924!2sWarung%20Di%20Kebun!5e0!3m2!1sen!2sid!4v1700584477176!5m2!1sen!2sid"
-                width="450"
+                width={videoWidth}
                 height="200"
                 style={{
                   border: 0,
@@ -526,7 +600,7 @@ export default function Home() {
 
         <p className={cn(dancingScript.className, "py-5 text-black")}>
           Made with love, by Gery & Mahita
-        </p>
+        </p> */}
       </main>
     </>
   );
