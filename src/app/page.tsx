@@ -9,34 +9,6 @@ import Hero1 from "../../public/1.jpg";
 import Hero2 from "../../public/2.jpg";
 import Hero3 from "../../public/3.png";
 import Bride from "../../public/bride.jpg";
-import Image2 from "../../public/2.gif";
-import ImageCol1 from "../../public/col_1.jpg";
-import ImageCol1_1 from "../../public/col_1_1.jpg";
-import ImageCol1_2 from "../../public/col_1_2.jpg";
-import ImageCol1_3 from "../../public/col_1_3.jpg";
-import ImageCol2 from "../../public/col_2.jpg";
-import ImageCol2_1 from "../../public/col_2_1.jpg";
-import ImageCol2_2 from "../../public/col_2_2.jpg";
-import ImageCol2_3 from "../../public/col_2_3.jpg";
-import ImageCol3 from "../../public/col_3.jpg";
-import ImageCol3_1 from "../../public/col_3_1.jpg";
-import ImageCol3_2 from "../../public/col_3_2.jpg";
-import ImageCol3_3 from "../../public/col_3_3.jpg";
-import ImageCol4 from "../../public/col_4.jpg";
-import ImageCol4_1 from "../../public/col_4_1.jpg";
-import ImageCol4_2 from "../../public/col_4_2.jpg";
-import ImageCol4_3 from "../../public/col_4_3.jpg";
-import ImageCol5 from "../../public/col_5.jpg";
-import ImageCol5_1 from "../../public/col_5_1.jpg";
-import ImageCol5_2 from "../../public/col_5_2.jpg";
-import ImageCol5_3 from "../../public/col_5_3.jpg";
-import ImageCol6 from "../../public/col_6.jpg";
-import ImageCol6_1 from "../../public/col_6_1.jpg";
-import ImageCol6_2 from "../../public/col_6_2.jpg";
-import ImageCol6_3 from "../../public/col_6_4.jpg";
-import Gery from "../../public/gery.jpg";
-import Mahita from "../../public/mahita.jpg";
-import Separator from "../../public/separator_1.png";
 import Background from "../../public/bg.png";
 import PageTwo from "../../public/pg2.png";
 import PageThree from "../../public/pg3.png";
@@ -56,6 +28,7 @@ export default function Home() {
   const [videoHeight, setVideoHeight] = useState(0);
   const [name, setName] = useState<string | null | undefined>(undefined);
   const [image, setImage] = useState<StaticImport | null>(null);
+  const [undanganOpened, setUndanganOpened] = useState<boolean>(false);
 
   useEffect(() => {
     const width = window.innerWidth <= 450 ? window.innerWidth : 450;
@@ -75,225 +48,235 @@ export default function Home() {
   const start = new Date();
   const end = new Date("2023-12-16");
 
+  const handleBukaUndangan = () => {
+    setUndanganOpened(true);
+  };
+
   const days = Math.round(Math.abs((start.getTime() - end.getTime()) / oneDay));
-  console.log(videoWidth);
 
   return (
     <>
       <main
         className={cn(
           "flex min-h-screen flex-col items-center justify-start bg-white max-w-[450px] relative",
-          "visible"
+          "visible",
+          !undanganOpened ? "h-full overflow-hidden" : ""
         )}
       >
-        <div className="relative">
-          <Image
-            src={Background}
-            alt="bg"
-            width={videoWidth}
-            className="h-screen"
-          />
-          <div className="flex flex-col items-center absolute top-0 w-full z-10 mt-24">
-            <p
-              style={{
-                fontFamily: "glacial-indifference",
-              }}
-              className="text-4xl"
-            >
-              Dear Resyo
-            </p>
-            <p
-              style={{
-                fontFamily: "daydream",
-              }}
-              className="text-xl "
-            >
-              {"you're invited to"}
-            </p>
-            <div className="flex flex-row mt-16 mb-8 ">
-              <p
-                style={{
-                  fontFamily: "daydream",
-                  color: "#0c006c",
-                }}
-                className="text-9xl "
-              >
-                {"A"}
-              </p>
-              <p
-                style={{
-                  fontFamily: "daydream",
-                  color: "#0c006c",
-                  transform: "rotate(10deg)",
-                }}
-                className="text-9xl mt-5"
-              >
-                {"L"}
-              </p>
-            </div>
-            <p
-              style={{
-                fontFamily: "daydream",
-                color: "#0c006c",
-              }}
-              className="text-5xl"
-            >
-              {"Arya & Laksmi"}
-            </p>
-            <p
-              style={{
-                fontFamily: "daydream",
-              }}
-              className="text-xl"
-            >
-              {"wedding reception"}
-            </p>
-            <button
-              className="p-2 my-2 font-sans rounded-xl"
-              style={{
-                backgroundColor: "#f0c37c",
-              }}
-            >
-              buka undangan
-            </button>
-          </div>
-        </div>
-        <Toaster />
-        <div
-          style={{
-            backgroundImage: `url(${PageTwo.src})`,
-            backgroundSize: "cover",
-            width: videoWidth,
-          }}
-          className="flex flex-col items-center pt-12"
-        >
-          <Image
-            src={Hero1.src}
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-1/2 h-auto my-1"
-            alt={"hero-one"}
-          />
-          <Image
-            src={Hero2.src}
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-1/2 h-auto my-1"
-            alt={"hero-two"}
-          />
-          <Image
-            src={Hero3.src}
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-1/2 h-auto my-1"
-            alt={"hero-three"}
-          />
-
-          <p
-            style={{
-              fontFamily: "amsterdam",
-            }}
-            className="text-md p-2 text-center"
-          >
-            &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan ini
-            tanpa terpisahkan, panjang umur, semoga pernikahan ini dianugrahkan
-            putra-putri dan cucu yang memberi penghiburan, tinggal di rumah yang
-            penuh kebahagiaan&#34;
-          </p>
-
-          <p
-            style={{
-              fontFamily: "amsterdam",
-            }}
-            className="text-md p-2 mb-5"
-          >
-            Reg Weda X. 85.42
-          </p>
-        </div>
-        <div
-          style={{
-            backgroundImage: `url(${PageThree.src})`,
-            backgroundSize: "cover",
-            width: videoWidth,
-            height: "100vh",
-          }}
-          className="flex flex-col items-center py-24"
-        >
-          <div className="flex flex-row items-center mx-8">
+        {/* Heading section */}
+        <div className={undanganOpened ? "hidden" : ""}>
+          <div className="relative">
             <Image
-              src={Bride.src}
-              width="0"
-              height="0"
-              sizes="100%"
-              className="h-auto w-1/3 my-1 rounded-t-full"
-              alt={"bride"}
+              src={Background}
+              alt="bg"
+              width={videoWidth}
+              className="h-screen"
             />
-            <div className="flex flex-col ml-4">
-              <p
-                style={{
-                  fontFamily: "amsterdam",
-                }}
-                className="text-2xl py-5 italic font-light"
-              >
-                The Bride
-              </p>
-              <p
-                style={{
-                  fontFamily: "daydream",
-                  color: "#0c006c",
-                }}
-                className="text-2xl"
-              >
-                Made Laksmiani Dewi
-              </p>
+            <div className="flex flex-col items-center absolute top-0 w-full z-10 mt-24">
               <p
                 style={{
                   fontFamily: "glacial-indifference",
                 }}
-                className="text-sm"
+                className="text-4xl"
               >
-                Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+                Dear Resyo
               </p>
-            </div>
-          </div>
-          <div className="flex flex-row-reverse	 items-center mx-8">
-            <Image
-              src={Bride.src}
-              width="0"
-              height="0"
-              sizes="100%"
-              className="h-auto w-1/3 my-1 rounded-t-full"
-              alt={"bride"}
-            />
-            <div className="flex flex-col ml-4">
               <p
                 style={{
-                  fontFamily: "amsterdam",
+                  fontFamily: "daydream",
                 }}
-                className="text-2xl py-5 italic font-light"
+                className="text-xl "
               >
-                The Bride
+                {"you're invited to"}
               </p>
+              <div className="flex flex-row mt-16 mb-8 ">
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                  }}
+                  className="text-9xl "
+                >
+                  {"A"}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                    transform: "rotate(10deg)",
+                  }}
+                  className="text-9xl mt-5"
+                >
+                  {"L"}
+                </p>
+              </div>
               <p
                 style={{
                   fontFamily: "daydream",
                   color: "#0c006c",
                 }}
-                className="text-2xl"
+                className="text-5xl"
               >
-                Made Laksmiani Dewi
+                {"Arya & Laksmi"}
               </p>
               <p
                 style={{
-                  fontFamily: "glacial-indifference",
+                  fontFamily: "daydream",
                 }}
-                className="text-sm"
+                className="text-xl"
               >
-                Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+                {"wedding reception"}
               </p>
+              <button
+                className="p-2 my-2 font-sans rounded-xl"
+                style={{
+                  backgroundColor: "#f0c37c",
+                }}
+                onClick={handleBukaUndangan}
+              >
+                buka undangan
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* End of Heading section */}
+        <div className={!undanganOpened ? "hidden" : ""}>
+          <div
+            style={{
+              backgroundImage: `url(${PageTwo.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+            }}
+            className="flex flex-col items-center pt-12"
+          >
+            <Image
+              src={Hero1.src}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-1/2 h-auto my-1"
+              alt={"hero-one"}
+            />
+            <Image
+              src={Hero2.src}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-1/2 h-auto my-1"
+              alt={"hero-two"}
+            />
+            <Image
+              src={Hero3.src}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-1/2 h-auto my-1"
+              alt={"hero-three"}
+            />
+
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-md p-2 text-center"
+            >
+              &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan
+              ini tanpa terpisahkan, panjang umur, semoga pernikahan ini
+              dianugrahkan putra-putri dan cucu yang memberi penghiburan,
+              tinggal di rumah yang penuh kebahagiaan&#34;
+            </p>
+
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-md p-2 mb-5"
+            >
+              Reg Weda X. 85.42
+            </p>
+          </div>
+          <div
+            style={{
+              backgroundImage: `url(${PageThree.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+              height: "100vh",
+            }}
+            className="flex flex-col items-center py-24"
+          >
+            <div className="flex flex-row items-center mx-8">
+              <Image
+                src={Bride.src}
+                width="0"
+                height="0"
+                sizes="100%"
+                className="h-auto w-1/3 my-1 rounded-t-full"
+                alt={"bride"}
+              />
+              <div className="flex flex-col ml-4">
+                <p
+                  style={{
+                    fontFamily: "amsterdam",
+                  }}
+                  className="text-2xl py-5 italic font-light"
+                >
+                  The Bride
+                </p>
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                  }}
+                  className="text-2xl"
+                >
+                  Made Laksmiani Dewi
+                </p>
+                <p
+                  style={{
+                    fontFamily: "glacial-indifference",
+                  }}
+                  className="text-sm"
+                >
+                  Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row-reverse	 items-center mx-8">
+              <Image
+                src={Bride.src}
+                width="0"
+                height="0"
+                sizes="100%"
+                className="h-auto w-1/3 my-1 rounded-t-full"
+                alt={"bride"}
+              />
+              <div className="flex flex-col ml-4">
+                <p
+                  style={{
+                    fontFamily: "amsterdam",
+                  }}
+                  className="text-2xl py-5 italic font-light"
+                >
+                  The Bride
+                </p>
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                  }}
+                  className="text-2xl"
+                >
+                  Made Laksmiani Dewi
+                </p>
+                <p
+                  style={{
+                    fontFamily: "glacial-indifference",
+                  }}
+                  className="text-sm"
+                >
+                  Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+                </p>
+              </div>
             </div>
           </div>
         </div>
