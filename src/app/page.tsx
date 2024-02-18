@@ -88,13 +88,13 @@ export default function Home() {
           />
         )}
         <div className="relative">
-          <Image src={Background} alt="bg" width={videoWidth} />
-          <div
-            style={{
-              height: videoHeight,
-            }}
-            className="flex flex-col items-center absolute top-0 w-full z-10 mt-24"
-          >
+          <Image
+            src={Background}
+            alt="bg"
+            width={videoWidth}
+            className="h-screen"
+          />
+          <div className="flex flex-col items-center absolute top-0 w-full z-10 mt-24">
             <p
               style={{
                 fontFamily: "glacial-indifference",
