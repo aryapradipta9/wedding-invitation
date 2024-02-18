@@ -8,7 +8,7 @@ import Typewriter from "typewriter-effect";
 import Hero1 from "../../public/1.jpg";
 import Hero2 from "../../public/2.jpg";
 import Hero3 from "../../public/3.png";
-import Bride from "../../public/bride.JPG";
+import Bride from "../../public/bride.jpg";
 import Image2 from "../../public/2.gif";
 import ImageCol1 from "../../public/col_1.jpg";
 import ImageCol1_1 from "../../public/col_1_1.jpg";
