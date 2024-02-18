@@ -9,6 +9,8 @@ import Hero1 from "../../public/1.jpg";
 import Hero2 from "../../public/2.jpg";
 import Hero3 from "../../public/3.png";
 import Bride from "../../public/bride.jpg";
+import Groom from "../../public/groom.jpg";
+
 import Background from "../../public/bg.png";
 import PageTwo from "../../public/pg2.png";
 import PageThree from "../../public/pg3.png";
@@ -204,12 +206,12 @@ export default function Home() {
           >
             <div className="flex flex-row items-center mx-8">
               <Image
-                src={Bride.src}
+                src={Groom.src}
                 width="0"
                 height="0"
                 sizes="100%"
                 className="h-auto w-1/3 my-1 rounded-t-full"
-                alt={"bride"}
+                alt={"groom"}
               />
               <div className="flex flex-col ml-4">
                 <p
@@ -218,7 +220,7 @@ export default function Home() {
                   }}
                   className="text-2xl py-5 italic font-light"
                 >
-                  The Bride
+                  The Groom
                 </p>
                 <p
                   style={{
@@ -227,7 +229,7 @@ export default function Home() {
                   }}
                   className="text-2xl"
                 >
-                  Made Laksmiani Dewi
+                  Putu Arya Pradipta
                 </p>
                 <p
                   style={{
@@ -235,7 +237,7 @@ export default function Home() {
                   }}
                   className="text-sm"
                 >
-                  Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+                  Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni Rustiani
                 </p>
               </div>
             </div>
@@ -313,7 +315,11 @@ export default function Home() {
             </p>
             <Calendar></Calendar>
             <Button
-              onClick={() => {}}
+              onClick={() => {
+                window.open(
+                  "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MGFxb2JzbzM4bXU0NGdhcmVuZHZ0OWQ4ZWwgYXJ5YXByYWRpcHRhOUBt&tmsrc=aryapradipta9%40gmail.com"
+                );
+              }}
               text={"Jadwalkan via Google Kalender"}
             ></Button>
             <p
