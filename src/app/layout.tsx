@@ -4,8 +4,8 @@ import { specialElite } from "./font";
 import { cn } from "./utils";
 
 export const metadata: Metadata = {
-  title: "Nalong",
-  description: "Nalong",
+  title: "Arya & Laksmi",
+  description: "The wedding of Arya & Laksmi",
 };
 
 export default function RootLayout({
