@@ -2,52 +2,42 @@
 
 import Image from "next/image";
 import ReactPlayer from "react-player";
-import { dancingScript, sansSerif } from "../font";
 import { cn } from "../utils";
 import Typewriter from "typewriter-effect";
-import Image1 from "../../../public/0_1.jpg";
-import Image2 from "../../../public/2.gif";
-import ImageCol1 from "../../../public/col_1.jpg";
-import ImageCol1_1 from "../../../public/col_1_1.jpg";
-import ImageCol1_2 from "../../../public/col_1_2.jpg";
-import ImageCol1_3 from "../../../public/col_1_3.jpg";
-import ImageCol2 from "../../../public/col_2.jpg";
-import ImageCol2_1 from "../../../public/col_2_1.jpg";
-import ImageCol2_2 from "../../../public/col_2_2.jpg";
-import ImageCol2_3 from "../../../public/col_2_3.jpg";
-import ImageCol3 from "../../../public/col_3.jpg";
-import ImageCol3_1 from "../../../public/col_3_1.jpg";
-import ImageCol3_2 from "../../../public/col_3_2.jpg";
-import ImageCol3_3 from "../../../public/col_3_3.jpg";
-import ImageCol4 from "../../../public/col_4.jpg";
-import ImageCol4_1 from "../../../public/col_4_1.jpg";
-import ImageCol4_2 from "../../../public/col_4_2.jpg";
-import ImageCol4_3 from "../../../public/col_4_3.jpg";
-import ImageCol5 from "../../../public/col_5.jpg";
-import ImageCol5_1 from "../../../public/col_5_1.jpg";
-import ImageCol5_2 from "../../../public/col_5_2.jpg";
-import ImageCol5_3 from "../../../public/col_5_3.jpg";
-import ImageCol6 from "../../../public/col_6.jpg";
-import ImageCol6_1 from "../../../public/col_6_1.jpg";
-import ImageCol6_2 from "../../../public/col_6_2.jpg";
-import ImageCol6_3 from "../../../public/col_6_4.jpg";
-import Gery from "../../../public/gery.jpg";
-import Mahita from "../../../public/mahita.jpg";
-import Separator from "../../../public/separator_1.png";
+import Hero1 from "../../../public/1.jpg";
+import Hero2 from "../../../public/2.jpg";
+import Hero3 from "../../../public/3.png";
+import Bride from "../../../public/bride.jpg";
+import Groom from "../../../public/groom.jpg";
+
+import Background from "../../../public/bg.png";
+import PageTwo from "../../../public/pg2.png";
+import PageThree from "../../../public/pg3.png";
+import PageFour from "../../../public/pg4.png";
+
+import FrontLogo from "../../public/front-logo.png";
+
 import { Toaster } from "react-hot-toast";
 import Submission from "./submission";
 import { notFound, useParams } from "next/navigation";
 import AnimateOnScroll from "./animate";
 import { useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { Button } from "../button";
+import { Calendar } from "../calendar";
+
+type Guest = {
+  fullName: string;
+  shortName: string;
+};
 
 export default function Home() {
   const { id } = useParams();
-  const [isLoadingVideo, setIsLoadingVideo] = useState(true);
   const [videoWidth, setVideoWidth] = useState(0);
   const [videoHeight, setVideoHeight] = useState(0);
-  const [name, setName] = useState<string | null | undefined>(undefined);
+  const [guest, setGuest] = useState<Guest | undefined>(undefined);
   const [image, setImage] = useState<StaticImport | null>(null);
+  const [undanganOpened, setUndanganOpened] = useState<boolean>(false);
 
   useEffect(() => {
     const width = window.innerWidth <= 450 ? window.innerWidth : 450;
@@ -58,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     fetch("/api/" + id)
       .then((response) => response.json())
-      .then((data) => setName(data.name));
+      .then((data) => setGuest(data.data));
   }, [id]);
 
   if (!videoWidth) return null;
@@ -67,29 +57,315 @@ export default function Home() {
   const start = new Date();
   const end = new Date("2023-12-16");
 
-  const days = Math.round(Math.abs((start.getTime() - end.getTime()) / oneDay));
+  const handleBukaUndangan = () => {
+    setUndanganOpened(true);
+  };
 
-  console.info(name);
-  if (name === null) return notFound();
+  if (guest === undefined) {
+    return <>Loading</>;
+  }
+
+  const days = Math.round(Math.abs((start.getTime() - end.getTime()) / oneDay));
 
   return (
     <>
-      {isLoadingVideo && <p>Loading...</p>}
       <main
         className={cn(
           "flex min-h-screen flex-col items-center justify-start bg-white max-w-[450px] relative",
-          isLoadingVideo ? "hidden" : "visible"
+          "visible",
+          !undanganOpened ? "h-full overflow-hidden" : ""
         )}
       >
-        {image && (
-          <ImagePreview
-            src={image}
-            width={videoWidth}
-            onClose={() => setImage(null)}
-          />
-        )}
-        <Toaster />
-        <div className="relative">
+        {/* Heading section */}
+        <div className={undanganOpened ? "hidden" : ""}>
+          <div className="relative">
+            <Image
+              src={Background}
+              alt="bg"
+              width={videoWidth}
+              className="h-screen"
+            />
+            <div className="flex flex-col items-center absolute top-0 w-full z-10 mt-24">
+              <p
+                style={{
+                  fontFamily: "glacial-indifference",
+                }}
+                className="text-4xl"
+              >
+                Dear {guest.shortName}
+              </p>
+              <p
+                style={{
+                  fontFamily: "daydream",
+                }}
+                className="text-xl "
+              >
+                {"you're invited to"}
+              </p>
+              <div className="flex flex-row mt-16 mb-8 ">
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                  }}
+                  className="text-9xl "
+                >
+                  {"A"}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                    transform: "rotate(10deg)",
+                  }}
+                  className="text-9xl mt-5"
+                >
+                  {"L"}
+                </p>
+              </div>
+              <p
+                style={{
+                  fontFamily: "daydream",
+                  color: "#0c006c",
+                }}
+                className="text-5xl"
+              >
+                {"Arya & Laksmi"}
+              </p>
+              <p
+                style={{
+                  fontFamily: "daydream",
+                }}
+                className="text-xl"
+              >
+                {"wedding reception"}
+              </p>
+              <Button
+                onClick={handleBukaUndangan}
+                text={"buka undangan"}
+              ></Button>
+            </div>
+          </div>
+        </div>
+        {/* End of Heading section */}
+        <div className={!undanganOpened ? "hidden" : ""}>
+          <div
+            style={{
+              backgroundImage: `url(${PageTwo.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+            }}
+            className="flex flex-col items-center pt-12"
+          >
+            <Image
+              src={Hero1.src}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-1/2 h-auto my-1"
+              alt={"hero-one"}
+            />
+            <Image
+              src={Hero2.src}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-1/2 h-auto my-1"
+              alt={"hero-two"}
+            />
+            <Image
+              src={Hero3.src}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-1/2 h-auto my-1"
+              alt={"hero-three"}
+            />
+
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-md p-2 text-center"
+            >
+              &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan
+              ini tanpa terpisahkan, panjang umur, semoga pernikahan ini
+              dianugrahkan putra-putri dan cucu yang memberi penghiburan,
+              tinggal di rumah yang penuh kebahagiaan&#34;
+            </p>
+
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-md p-2 mb-5"
+            >
+              Reg Weda X. 85.42
+            </p>
+          </div>
+          <div
+            style={{
+              backgroundImage: `url(${PageThree.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+              height: "100vh",
+            }}
+            className="flex flex-col items-center py-24"
+          >
+            <div className="flex flex-row items-center mx-8">
+              <Image
+                src={Groom.src}
+                width="0"
+                height="0"
+                sizes="100%"
+                className="h-auto w-1/3 my-1 rounded-t-full"
+                alt={"groom"}
+              />
+              <div className="flex flex-col ml-4">
+                <p
+                  style={{
+                    fontFamily: "amsterdam",
+                  }}
+                  className="text-2xl py-5 italic font-light"
+                >
+                  The Groom
+                </p>
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                  }}
+                  className="text-2xl"
+                >
+                  Putu Arya Pradipta
+                </p>
+                <p
+                  style={{
+                    fontFamily: "glacial-indifference",
+                  }}
+                  className="text-sm"
+                >
+                  Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni Rustiani
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row-reverse	 items-center mx-8">
+              <Image
+                src={Bride.src}
+                width="0"
+                height="0"
+                sizes="100%"
+                className="h-auto w-1/3 my-1 rounded-t-full"
+                alt={"bride"}
+              />
+              <div className="flex flex-col ml-4">
+                <p
+                  style={{
+                    fontFamily: "amsterdam",
+                  }}
+                  className="text-2xl py-5 italic font-light"
+                >
+                  The Bride
+                </p>
+                <p
+                  style={{
+                    fontFamily: "daydream",
+                    color: "#0c006c",
+                  }}
+                  className="text-2xl"
+                >
+                  Made Laksmiani Dewi
+                </p>
+                <p
+                  style={{
+                    fontFamily: "glacial-indifference",
+                  }}
+                  className="text-sm"
+                >
+                  Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: `url(${PageFour.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+            }}
+            className="flex flex-col items-center content-center pt-8"
+          >
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-2xl py-5 italic font-light text-white"
+            >
+              Mark your calendar
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+              }}
+              className="text-2xl"
+            >
+              18 Mei 2024
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+              }}
+              className="text-sm"
+            >
+              18.00 - 20.00
+            </p>
+            <Calendar></Calendar>
+            <Button
+              onClick={() => {
+                window.open(
+                  "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MGFxb2JzbzM4bXU0NGdhcmVuZHZ0OWQ4ZWwgYXJ5YXByYWRpcHRhOUBt&tmsrc=aryapradipta9%40gmail.com"
+                );
+              }}
+              text={"Jadwalkan via Google Kalender"}
+            ></Button>
+            <p
+              style={{
+                fontFamily: "amsterdam",
+              }}
+              className="text-2xl py-5 italic font-light text-white"
+            >
+              Venue
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+              }}
+              className="text-sm"
+            >
+              The Gallery CIBIS Park
+            </p>
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+                color: "#f1d0a7",
+                width: "60%",
+              }}
+              className="text-sm text-center"
+            >
+              Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
+            </p>
+            <Button
+              onClick={() => {
+                window.open("https://maps.app.goo.gl/A9GikxuTd7SJpn5o8");
+              }}
+              text={"Lihat di peta"}
+            ></Button>
+          </div>
+        </div>
+        {/* <div className="relative">
           <ReactPlayer
             url={"/hero.mp4"}
             controls={false}
@@ -125,7 +401,7 @@ export default function Home() {
               <Typewriter
                 options={{
                   deleteSpeed: 1000000,
-                  strings: [`Dear ${name},`],
+                  strings: [`Hi...`],
                   autoStart: true,
                   loop: true,
                 }}
@@ -228,7 +504,7 @@ export default function Home() {
             <div className="relative h-[200px] w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.2792415061267!2d115.23871231178799!3d-8.664971488150677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240613bbb02bb%3A0x26437fa8b7acd924!2sWarung%20Di%20Kebun!5e0!3m2!1sen!2sid!4v1700584477176!5m2!1sen!2sid"
-                width="450"
+                width={videoWidth}
                 height="200"
                 style={{
                   border: 0,
@@ -529,7 +805,7 @@ export default function Home() {
 
         <p className={cn(dancingScript.className, "py-5 text-black")}>
           Made with love, by Gery & Mahita
-        </p>
+        </p> */}
       </main>
     </>
   );
