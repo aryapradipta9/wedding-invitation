@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ReactPlayer from "react-player";
 import { cn } from "../utils";
-import Typewriter from "typewriter-effect";
 import Hero1 from "../../../public/1.jpg";
 import Hero2 from "../../../public/2.jpg";
 import Hero3 from "../../../public/3.png";
@@ -15,12 +13,7 @@ import PageTwo from "../../../public/pg2.png";
 import PageThree from "../../../public/pg3.png";
 import PageFour from "../../../public/pg4.png";
 
-import FrontLogo from "../../public/front-logo.png";
-
-import { Toaster } from "react-hot-toast";
-import Submission from "./submission";
-import { notFound, useParams } from "next/navigation";
-import AnimateOnScroll from "./animate";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Button } from "../button";
@@ -31,6 +24,12 @@ type Guest = {
   shortName: string;
 };
 
+type Comment = {
+  timestamp: string;
+  name: string;
+  comment: string;
+};
+
 export default function Home() {
   const { id } = useParams();
   const [videoWidth, setVideoWidth] = useState(0);
@@ -38,6 +37,8 @@ export default function Home() {
   const [guest, setGuest] = useState<Guest | undefined>(undefined);
   const [image, setImage] = useState<StaticImport | null>(null);
   const [undanganOpened, setUndanganOpened] = useState<boolean>(false);
+  const [komentar, setKomentar] = useState("");
+  const [allComments, setAllComments] = useState<Array<Comment>>([]);
 
   useEffect(() => {
     const width = window.innerWidth <= 450 ? window.innerWidth : 450;
@@ -51,7 +52,21 @@ export default function Home() {
       .then((data) => setGuest(data.data));
   }, [id]);
 
-  const [komentar, setKomentar] = useState("");
+  useEffect(() => {
+    listComments();
+  }, []);
+
+  function listComments() {
+    return fetch("/api/comments")
+      .then((r) => r.json())
+      .then((data) =>
+        setAllComments(
+          (data.data as Array<Comment>).sort(
+            (a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp)
+          )
+        )
+      );
+  }
 
   if (!videoWidth) return null;
 
@@ -415,18 +430,33 @@ export default function Home() {
           />
           <Button
             onClick={() => {
-              fetch("/api/comments", {
-                method: "POST",
-                body: JSON.stringify({
-                  nama: guest.fullName,
-                  komentar: komentar,
-                }),
-              });
+              createComments(guest.fullName, komentar).then(() =>
+                listComments()
+              );
             }}
             text={"Submit"}
           ></Button>
+
+          {allComments.map((c) => {
+            return (
+              <div key={c.timestamp} className="border-2 m-5">
+                <p>Nama: {c.name}</p>
+                <p>Komentar: {c.comment}</p>
+              </div>
+            );
+          })}
         </div>
       </main>
     </>
   );
+}
+
+function createComments(nama: string, komentar: string) {
+  return fetch("/api/comments", {
+    method: "POST",
+    body: JSON.stringify({
+      nama: nama,
+      komentar: komentar,
+    }),
+  });
 }

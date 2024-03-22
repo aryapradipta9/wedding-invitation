@@ -1,25 +1,13 @@
 import { z } from "zod";
 import { getSheetClient } from "../client";
 
-export async function GET(
-  _request: Request,
-  { params: { id } }: { params: { id: string } }
-) {
+export async function GET(_request: Request) {
   const result = await getSheetClient().spreadsheets.values.get({
     spreadsheetId: "125Dgz2B3M2fuW4-nmC2trUnEr9zDOS47agVDUQrbDrQ",
-    range: "Komentar!A2:B",
+    range: "Komentar!A2:C",
   });
 
   const values = result.data.values;
-  const match = values?.find((v) => v[1] == id);
-  if (!match) {
-    return Response.json(
-      {
-        status: "error",
-      },
-      { status: 404 }
-    );
-  }
 
   return Response.json(
     {
@@ -27,8 +15,8 @@ export async function GET(
       data: values?.map((v) => {
         return {
           timestamp: v[0],
-          nama: v[1],
-          komentar: v[2],
+          name: v[1],
+          comment: v[2],
         };
       }),
     },
