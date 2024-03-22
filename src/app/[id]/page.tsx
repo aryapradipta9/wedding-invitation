@@ -51,6 +51,8 @@ export default function Home() {
       .then((data) => setGuest(data.data));
   }, [id]);
 
+  const [komentar, setKomentar] = useState("");
+
   if (!videoWidth) return null;
 
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
@@ -404,6 +406,25 @@ export default function Home() {
           >
             Komentar
           </p>
+          <input
+            type="text"
+            placeholder="ketik komentar"
+            value={komentar}
+            onChange={(e) => setKomentar(e.target.value)}
+            className="border-black py-2 px-4 border"
+          />
+          <Button
+            onClick={() => {
+              fetch("/api/comments", {
+                method: "POST",
+                body: JSON.stringify({
+                  nama: "Nalong",
+                  komentar: komentar,
+                }),
+              });
+            }}
+            text={"Submit"}
+          ></Button>
         </div>
         {/* <div className="relative">
           <ReactPlayer
