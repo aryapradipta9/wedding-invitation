@@ -363,6 +363,16 @@ export default function Home() {
               }}
               text={"Lihat di peta"}
             ></Button>
+          </div>
+          <div className="flex flex-col items-center content-center pt-8">
+            <p
+              style={{
+                fontFamily: "glacial-indifference",
+              }}
+              className="text-2xl py-5 italic font-light"
+            >
+              Konfirmasi Kehadiran
+            </p>
             <Button
               onClick={() => {
                 fetch("/api/" + id, {
@@ -374,7 +384,26 @@ export default function Home() {
               }}
               text={"Datang"}
             ></Button>
+            <Button
+              onClick={() => {
+                fetch("/api/" + id, {
+                  method: "POST",
+                  body: JSON.stringify({
+                    accept: false,
+                  }),
+                });
+              }}
+              text={"Tidak datang"}
+            ></Button>
           </div>
+          <p
+            style={{
+              fontFamily: "glacial-indifference",
+            }}
+            className="text-2xl py-5 italic font-light"
+          >
+            Komentar
+          </p>
         </div>
         {/* <div className="relative">
           <ReactPlayer
