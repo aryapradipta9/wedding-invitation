@@ -363,6 +363,17 @@ export default function Home() {
               }}
               text={"Lihat di peta"}
             ></Button>
+            <Button
+              onClick={() => {
+                fetch("/api/" + id, {
+                  method: "POST",
+                  body: JSON.stringify({
+                    accept: true,
+                  }),
+                });
+              }}
+              text={"Datang"}
+            ></Button>
           </div>
         </div>
         {/* <div className="relative">

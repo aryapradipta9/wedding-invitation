@@ -2,8 +2,9 @@ import { google } from "googleapis";
 import { z } from "zod";
 
 export async function POST(request: Request) {
-  const { name } = z
+  const { name, id } = z
     .object({
+      id: z.string(),
       name: z.string(),
     })
     .parse(await request.json());
