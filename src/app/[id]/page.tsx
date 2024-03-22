@@ -418,7 +418,7 @@ export default function Home() {
               fetch("/api/comments", {
                 method: "POST",
                 body: JSON.stringify({
-                  nama: "Nalong",
+                  nama: guest.fullName,
                   komentar: komentar,
                 }),
               });
