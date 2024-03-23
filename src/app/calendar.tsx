@@ -45,7 +45,7 @@ export const Calendar = () => {
   });
 
   return (
-    <div className="grid grid-cols-7 text-white content-center border-2 border-white p-1 rounded-lg bg-kuning bg-opacity-60">
+    <div className="grid grid-cols-7 text-white content-center border-2 border-white p-1 rounded-2xl bg-kuning bg-opacity-60 px-4">
       {days}
       {spacer}
       {dates}
