@@ -100,43 +100,42 @@ export default function Home() {
       >
         {/* Heading section */}
         <div className={undanganOpened ? "hidden" : ""}>
-          <div className="relative">
-            <Image
-              src={Header}
-              alt="bg"
-              width={videoWidth}
-              className="h-screen"
-            />
-            <div className="flex flex-col items-center justify-center absolute top-0 w-full z-10 mt-24">
-              <p className={cn(theSeason.className, "text-4xl text-krem")}>
-                DEAR {guest.shortName.toUpperCase()}
-              </p>
-              <p className={cn(forum.className, "text-xl text-krem mb-20")}>
-                {"you're invited to"}
-              </p>
-              {/* <p className={cn(theSeason.className, "text-4xl text-krem")}>
+          <div
+            style={{
+              backgroundImage: `url(${Header.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+            }}
+            className="flex flex-col items-center justify-center h-screen"
+          >
+            <p className={cn(theSeason.className, "text-4xl text-krem")}>
+              DEAR {guest.shortName.toUpperCase()}
+            </p>
+            <p className={cn(forum.className, "text-xl text-krem mb-20")}>
+              {"you're invited to"}
+            </p>
+            {/* <p className={cn(theSeason.className, "text-4xl text-krem")}>
                 ARYA & LAKSMI
               </p> */}
-              <p
-                style={{
-                  fontFamily: "daydream",
-                }}
-                className="text-5xl text-krem"
-              >
-                {"Arya & Laksmi"}
+            <p
+              style={{
+                fontFamily: "daydream",
+              }}
+              className="text-5xl text-krem"
+            >
+              {"Arya & Laksmi"}
+            </p>
+            <p className={cn(forum.className, "text-xl text-krem mb-20")}>
+              {"wedding reception"}
+            </p>
+            <button
+              className={cn(forum.className, "p-2 my-2  bg-krem rounded-xl")}
+              onClick={handleBukaUndangan}
+            >
+              <p className={cn(forum.className, "text-xl text-biru")}>
+                buka undangan
               </p>
-              <p className={cn(forum.className, "text-xl text-krem mb-20")}>
-                {"wedding reception"}
-              </p>
-              <button
-                className={cn(forum.className, "p-2 my-2  bg-krem rounded-xl")}
-                onClick={handleBukaUndangan}
-              >
-                <p className={cn(forum.className, "text-xl text-biru")}>
-                  buka undangan
-                </p>
-              </button>
-            </div>
+            </button>
           </div>
         </div>
         {/* End of Heading section */}
