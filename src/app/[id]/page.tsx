@@ -146,12 +146,12 @@ export default function Home() {
               backgroundSize: "cover",
               width: videoWidth,
             }}
-            className="flex flex-col items-center pt-8 h-screen"
+            className="flex flex-col items-center pt-12 h-screen"
           >
             <p
               className={cn(
                 forum.className,
-                "text-md p-2 text-left animate-fade-in-up mx-5"
+                "text-lg p-2 text-left animate-fade-in-up mx-5"
               )}
             >
               &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan
@@ -163,7 +163,7 @@ export default function Home() {
             <p
               className={cn(
                 forum.className,
-                "text-md p-2 text-left animate-fade-in-up mx-5"
+                "text-lg p-2 text-left animate-fade-in-up mx-5"
               )}
             >
               Reg Weda X. 85.42
