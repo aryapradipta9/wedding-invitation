@@ -15,6 +15,7 @@ import PageTwo from "../../../public/page2.png";
 import PageThree from "../../../public/pg3.png";
 import PageFour from "../../../public/pg4.png";
 import PageFive from "../../../public/page5.png";
+import PageSix from "../../../public/page6.png";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -82,6 +83,10 @@ export default function Home() {
   const handleBukaUndangan = () => {
     setUndanganOpened(true);
   };
+
+  function handleCopy(text: string) {
+    navigator.clipboard.writeText(text);
+  }
 
   if (guest === undefined) {
     return <>Loading</>;
@@ -291,6 +296,93 @@ export default function Home() {
               }}
               text={"Lihat di peta"}
             ></Button>
+          </div>
+          <div
+            style={{
+              backgroundImage: `url(${PageSix.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+            }}
+            className="flex flex-col items-center justify-center h-screen px-2 "
+          >
+            <p
+              className={cn(
+                theSeason.className,
+                "text-4xl text-krem text-center"
+              )}
+            >
+              WEDDING GIFT
+            </p>
+            <p
+              className={cn(
+                forum.className,
+                "text-md text-krem text-center mb-5"
+              )}
+            >
+              Doa restu Anda merupakan hadiah yang tidak dapat tergantikan.
+              Tanpa mengurangi rasa hormat, Anda dapat memberikan hadiah dalam
+              bentuk lainnya.
+            </p>
+
+            <div className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+              <p
+                className={cn(forum.className, "text-lg text-biru text-center")}
+              >
+                <b>BCA</b> 7772102251
+                <button
+                  onClick={() => handleCopy("7772102251")}
+                  className="border"
+                >
+                  copy
+                </button>
+                <br /> a.n. Putu Arya Pradipta
+              </p>
+            </div>
+            <div className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+              <p
+                className={cn(forum.className, "text-lg text-biru text-center")}
+              >
+                <b>BRI</b> xxxxx
+                <button
+                  onClick={() => handleCopy("7772102251")}
+                  className="border"
+                >
+                  copy
+                </button>
+                <br /> a.n. Made Laksmiani Dewi
+              </p>
+            </div>
+            <div className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+              <p
+                className={cn(forum.className, "text-lg text-biru text-center")}
+              >
+                <b>Gopay</b> 087882072855
+                <button
+                  onClick={() => handleCopy("7772102251")}
+                  className="border"
+                >
+                  copy
+                </button>
+                <br /> a.n. Made Laksmiani Dewi
+              </p>
+            </div>
+
+            <div className="flex flex-col  items-center justify-center mx-5 h-24 w-3/4 bg-krem">
+              <p
+                className={cn(
+                  theSeason.className,
+                  "text-lg text-biru text-center"
+                )}
+              >
+                Alamat
+              </p>
+              <p
+                className={cn(forum.className, "text-sm text-biru text-center")}
+              >
+                Signature Park Grande TB 05 18 Kel. Cawang Kec. Kramat Jati Kota
+                Jakarta Timur
+              </p>
+            </div>
           </div>
           <div className="flex flex-col items-center content-center pt-8">
             <p
