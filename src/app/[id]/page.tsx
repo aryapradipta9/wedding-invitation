@@ -11,7 +11,7 @@ import Groom from "../../../public/groom.jpg";
 import Background from "../../../public/bg.png";
 import Header from "../../../public/header.jpg";
 
-import PageTwo from "../../../public/pg2.png";
+import PageTwo from "../../../public/page2.png";
 import PageThree from "../../../public/pg3.png";
 import PageFour from "../../../public/pg4.png";
 
@@ -146,38 +146,13 @@ export default function Home() {
               backgroundSize: "cover",
               width: videoWidth,
             }}
-            className="flex flex-col items-center pt-12"
+            className="flex flex-col items-center pt-8 h-screen"
           >
-            <Image
-              src={Hero1.src}
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-1/2 h-auto my-1"
-              alt={"hero-one"}
-            />
-            <Image
-              src={Hero2.src}
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-1/2 h-auto my-1"
-              alt={"hero-two"}
-            />
-            <Image
-              src={Hero3.src}
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-1/2 h-auto my-1"
-              alt={"hero-three"}
-            />
-
             <p
-              style={{
-                fontFamily: "amsterdam",
-              }}
-              className="text-md p-2 text-center"
+              className={cn(
+                forum.className,
+                "text-md p-2 text-left animate-fade-in-up mx-5"
+              )}
             >
               &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan
               ini tanpa terpisahkan, panjang umur, semoga pernikahan ini
@@ -186,10 +161,10 @@ export default function Home() {
             </p>
 
             <p
-              style={{
-                fontFamily: "amsterdam",
-              }}
-              className="text-md p-2 mb-5"
+              className={cn(
+                forum.className,
+                "text-md p-2 text-left animate-fade-in-up mx-5"
+              )}
             >
               Reg Weda X. 85.42
             </p>
