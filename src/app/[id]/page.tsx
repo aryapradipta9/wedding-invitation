@@ -16,6 +16,7 @@ import PageThree from "../../../public/page3.png";
 import PageFour from "../../../public/pg4.png";
 import PageFive from "../../../public/page5.png";
 import PageSix from "../../../public/page6.png";
+import PageSeven from "../../../public/page7.png";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -382,6 +383,75 @@ export default function Home() {
                 Jl. Robusta 2c blok s5 no 4 rt05 rw06 Kel. Pondok Kopi Kec.
                 Duren Sawit Kota Jakarta Timur 13460
               </p>
+            </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: `url(${PageSeven.src})`,
+              backgroundSize: "cover",
+              width: videoWidth,
+            }}
+            className="flex flex-col items-center justify-center h-screen px-2 "
+          >
+            <p
+              className={cn(
+                theSeason.className,
+                "text-xl text-krem text-center"
+              )}
+            >
+              KONFIRMASI KEHADIRAN
+            </p>
+            <input
+              type="text"
+              value={guest.fullName}
+              className={cn(
+                forum.className,
+                "bg-krem rounded-lg pl-2 w-3/4 mb-1 h-8"
+              )}
+            ></input>
+            <select
+              id="konfirmasi"
+              name="konfirmasi"
+              className={cn(
+                forum.className,
+                "bg-krem rounded-lg pl-2 w-3/4 mb-1 h-8"
+              )}
+            >
+              <option value={"Hadir"}>Hadir</option>
+              <option value={"Tidak hadir"}>Tidak hadir</option>
+            </select>
+
+            <textarea
+              name="comment"
+              rows={4}
+              cols={30}
+              placeholder="Sampaikan ucapan..."
+              className={cn(
+                forum.className,
+                "bg-krem rounded-lg pl-2 w-3/4 mb-1"
+              )}
+            ></textarea>
+            <Button onClick={() => {}}>Kirim</Button>
+
+            <p className={cn(forum.className, "text-sm text-krem text-center")}>
+              xx Comment (s)
+            </p>
+            <div className="flex flex-col h-1/2 w-full items-center overflow-auto">
+              {allComments.map((c) => {
+                return (
+                  <div
+                    key={c.timestamp}
+                    className="m-1 bg-krem rounded-lg pl-2 w-3/4 leading-tight"
+                  >
+                    <p className={cn(forum.className, "text-biru")}>
+                      <b>{c.name}</b>
+                    </p>
+                    <p className={cn(forum.className, "text-biru")}>
+                      {c.comment}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="flex flex-col items-center content-center pt-8">
