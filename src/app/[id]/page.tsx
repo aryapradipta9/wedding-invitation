@@ -367,7 +367,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col  items-center justify-center mx-5 h-24 w-3/4 bg-krem">
+            <div className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem">
               <p
                 className={cn(
                   theSeason.className,
@@ -379,8 +379,8 @@ export default function Home() {
               <p
                 className={cn(forum.className, "text-sm text-biru text-center")}
               >
-                Signature Park Grande TB 05 18 Kel. Cawang Kec. Kramat Jati Kota
-                Jakarta Timur
+                Jl. Robusta 2c blok s5 no 4 rt05 rw06 Kel. Pondok Kopi Kec.
+                Duren Sawit Kota Jakarta Timur 13460
               </p>
             </div>
           </div>
