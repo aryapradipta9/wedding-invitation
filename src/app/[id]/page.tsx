@@ -9,7 +9,7 @@ import Bride from "../../../public/bride.jpg";
 import Groom from "../../../public/groom.jpg";
 
 import Background from "../../../public/bg.png";
-import Header from "../../../public/header.jpg";
+import Header from "../../../public/home.png";
 
 import PageTwo from "../../../public/page2.png";
 import PageThree from "../../../public/pg3.png";
