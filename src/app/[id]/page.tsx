@@ -14,6 +14,7 @@ import Header from "../../../public/home.png";
 import PageTwo from "../../../public/page2.png";
 import PageThree from "../../../public/pg3.png";
 import PageFour from "../../../public/pg4.png";
+import PageFive from "../../../public/page5.png";
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -241,38 +242,26 @@ export default function Home() {
           </div>
           <div
             style={{
-              backgroundImage: `url(${PageFour.src})`,
+              backgroundImage: `url(${PageFive.src})`,
               backgroundSize: "cover",
               width: videoWidth,
             }}
-            className="flex flex-col items-center content-center pt-8"
+            className="flex flex-col items-center justify-center pt-8 h-screen"
           >
             <p
-              style={{
-                fontFamily: "amsterdam",
-              }}
-              className="text-2xl py-5 italic font-light text-white"
+              className={cn(
+                theSeason.className,
+                "text-4xl text-krem text-center"
+              )}
             >
-              Mark your calendar
+              MARK YOUR CALENDAR
             </p>
             <p
-              style={{
-                fontFamily: "glacial-indifference",
-                color: "#f1d0a7",
-              }}
-              className="text-2xl"
+              className={cn(forum.className, "text-2xl text-krem text-center")}
             >
               18 Mei 2024
             </p>
-            <p
-              style={{
-                fontFamily: "glacial-indifference",
-                color: "#f1d0a7",
-              }}
-              className="text-sm"
-            >
-              18.00 - 20.00
-            </p>
+
             <Calendar></Calendar>
             <Button
               onClick={() => {
@@ -282,31 +271,13 @@ export default function Home() {
               }}
               text={"Jadwalkan via Google Kalender"}
             ></Button>
-            <p
-              style={{
-                fontFamily: "amsterdam",
-              }}
-              className="text-2xl py-5 italic font-light text-white"
-            >
-              Venue
+            <p className={cn(forum.className, "text-xl text-krem text-center")}>
+              18.00 - 20.00 WIB
             </p>
-            <p
-              style={{
-                fontFamily: "glacial-indifference",
-                color: "#f1d0a7",
-              }}
-              className="text-sm"
-            >
+            <p className={cn(forum.className, "text-xl text-krem text-center")}>
               The Gallery CIBIS Park
             </p>
-            <p
-              style={{
-                fontFamily: "glacial-indifference",
-                color: "#f1d0a7",
-                width: "60%",
-              }}
-              className="text-sm text-center"
-            >
+            <p className={cn(forum.className, "text-md text-krem text-center")}>
               Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
             </p>
             <Button

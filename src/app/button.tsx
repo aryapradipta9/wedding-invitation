@@ -19,10 +19,7 @@ export const Button = ({ onClick, text, children }: ButtonProps) => {
   }
   return (
     <button
-      className="p-2 my-2 font-sans rounded-xl"
-      style={{
-        backgroundColor: "#f0c37c",
-      }}
+      className="py-1 px-5 my-2 font-sans rounded-xl bg-krem bg-opacity-50"
       onClick={onClick}
     >
       {children}

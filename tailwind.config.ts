@@ -35,6 +35,7 @@ const config: Config = {
       krem: "#EDE3D9",
       biru: "#182B50",
       birutua: "#1E2C4C",
+      kuning: "#F0C37C",
     },
   },
   plugins: [],
