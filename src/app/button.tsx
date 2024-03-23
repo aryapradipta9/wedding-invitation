@@ -1,4 +1,4 @@
-import {
+import React, {
   MouseEventHandler,
   ReactElement,
   JSXElementConstructor,
@@ -9,10 +9,14 @@ import {
 
 interface ButtonProps {
   onClick: () => void;
-  text: string;
+  text?: string;
+  children?: React.ReactNode;
 }
 
-export const Button = ({ onClick, text }: ButtonProps) => {
+export const Button = ({ onClick, text, children }: ButtonProps) => {
+  if (children === undefined) {
+    children = <>{text}</>;
+  }
   return (
     <button
       className="p-2 my-2 font-sans rounded-xl"
@@ -21,7 +25,7 @@ export const Button = ({ onClick, text }: ButtonProps) => {
       }}
       onClick={onClick}
     >
-      {text}
+      {children}
     </button>
   );
 };

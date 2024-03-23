@@ -9,6 +9,8 @@ import Bride from "../../../public/bride.jpg";
 import Groom from "../../../public/groom.jpg";
 
 import Background from "../../../public/bg.png";
+import Header from "../../../public/header.jpg";
+
 import PageTwo from "../../../public/pg2.png";
 import PageThree from "../../../public/pg3.png";
 import PageFour from "../../../public/pg4.png";
@@ -18,6 +20,7 @@ import { useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Button } from "../button";
 import { Calendar } from "../calendar";
+import { forum, theSeason } from "../font";
 
 type Guest = {
   fullName: string;
@@ -73,6 +76,7 @@ export default function Home() {
   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
   const start = new Date();
   const end = new Date("2023-12-16");
+  const krem = "#EDE3D9";
 
   const handleBukaUndangan = () => {
     setUndanganOpened(true);
@@ -97,70 +101,40 @@ export default function Home() {
         <div className={undanganOpened ? "hidden" : ""}>
           <div className="relative">
             <Image
-              src={Background}
+              src={Header}
               alt="bg"
               width={videoWidth}
               className="h-screen"
             />
-            <div className="flex flex-col items-center absolute top-0 w-full z-10 mt-24">
-              <p
-                style={{
-                  fontFamily: "glacial-indifference",
-                }}
-                className="text-4xl"
-              >
-                Dear {guest.shortName}
+            <div className="flex flex-col items-center justify-center absolute top-0 w-full z-10 mt-24">
+              <p className={cn(theSeason.className, "text-4xl text-krem")}>
+                DEAR {guest.shortName.toUpperCase()}
               </p>
-              <p
-                style={{
-                  fontFamily: "daydream",
-                }}
-                className="text-xl "
-              >
+              <p className={cn(forum.className, "text-xl text-krem mb-20")}>
                 {"you're invited to"}
               </p>
-              <div className="flex flex-row mt-16 mb-8 ">
-                <p
-                  style={{
-                    fontFamily: "daydream",
-                    color: "#0c006c",
-                  }}
-                  className="text-9xl "
-                >
-                  {"A"}
-                </p>
-                <p
-                  style={{
-                    fontFamily: "daydream",
-                    color: "#0c006c",
-                    transform: "rotate(10deg)",
-                  }}
-                  className="text-9xl mt-5"
-                >
-                  {"L"}
-                </p>
-              </div>
+              {/* <p className={cn(theSeason.className, "text-4xl text-krem")}>
+                ARYA & LAKSMI
+              </p> */}
               <p
                 style={{
                   fontFamily: "daydream",
-                  color: "#0c006c",
                 }}
-                className="text-5xl"
+                className="text-5xl text-krem"
               >
                 {"Arya & Laksmi"}
               </p>
-              <p
-                style={{
-                  fontFamily: "daydream",
-                }}
-                className="text-xl"
-              >
+              <p className={cn(forum.className, "text-xl text-krem mb-20")}>
                 {"wedding reception"}
               </p>
-              <Button
+              <button
+                className={cn(forum.className, "p-2 my-2  bg-krem rounded-xl")}
                 onClick={handleBukaUndangan}
-                text={"buka undangan"}
-              ></Button>
+              >
+                <p className={cn(forum.className, "text-xl text-biru")}>
+                  buka undangan
+                </p>
+              </button>
             </div>
           </div>
         </div>
