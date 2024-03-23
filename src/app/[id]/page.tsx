@@ -12,7 +12,7 @@ import Background from "../../../public/bg.png";
 import Header from "../../../public/home.png";
 
 import PageTwo from "../../../public/page2.png";
-import PageThree from "../../../public/pg3.png";
+import PageThree from "../../../public/page3.png";
 import PageFour from "../../../public/pg4.png";
 import PageFive from "../../../public/page5.png";
 import PageSix from "../../../public/page6.png";
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
           <div
             style={{
-              backgroundImage: `url(${PageTwo.src})`,
+              backgroundImage: `url(${PageThree.src})`,
               backgroundSize: "cover",
               width: videoWidth,
               height: "100vh",
