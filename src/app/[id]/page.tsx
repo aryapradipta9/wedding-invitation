@@ -186,8 +186,11 @@ export default function Home() {
                 sizes="100%"
                 className="h-auto w-2/5 my-1 animate-fade-in-up"
                 alt={"groom"}
+                style={{
+                  boxShadow: "8px 8px #EDE3D9",
+                }}
               />
-              <div className="flex flex-col mx-2">
+              <div className="flex flex-col ml-4 mr-1">
                 <p
                   className={cn(
                     theSeason.className,
@@ -214,10 +217,13 @@ export default function Home() {
                 width="0"
                 height="0"
                 sizes="100%"
-                className="h-auto w-2/5 my-1 animate-fade-in-up"
+                className="h-auto w-2/5 my-1 animate-fade-in-up shadow-md"
                 alt={"bride"}
+                style={{
+                  boxShadow: "-8px 8px #EDE3D9",
+                }}
               />
-              <div className="flex flex-col ml-4">
+              <div className="flex flex-col mr-4 ml-1">
                 <p
                   className={cn(
                     theSeason.className,
