@@ -171,82 +171,68 @@ export default function Home() {
           </div>
           <div
             style={{
-              backgroundImage: `url(${PageThree.src})`,
+              backgroundImage: `url(${PageTwo.src})`,
               backgroundSize: "cover",
               width: videoWidth,
               height: "100vh",
             }}
-            className="flex flex-col items-center py-24"
+            className="flex flex-col items-center justify-center"
           >
-            <div className="flex flex-row items-center mx-8">
+            <div className="flex flex-row items-center">
               <Image
                 src={Groom.src}
                 width="0"
                 height="0"
                 sizes="100%"
-                className="h-auto w-1/3 my-1 rounded-t-full"
+                className="h-auto w-2/5 my-1 animate-fade-in-up"
                 alt={"groom"}
               />
-              <div className="flex flex-col ml-4">
+              <div className="flex flex-col mx-2">
                 <p
-                  style={{
-                    fontFamily: "amsterdam",
-                  }}
-                  className="text-2xl py-5 italic font-light"
+                  className={cn(
+                    theSeason.className,
+                    "text-2xl py-3 font-light text-birutua animate-fade-in-up"
+                  )}
                 >
-                  The Groom
+                  THE GROOM
                 </p>
                 <p
-                  style={{
-                    fontFamily: "daydream",
-                    color: "#0c006c",
-                  }}
-                  className="text-2xl"
+                  className={cn(forum.className, "text-xl animate-fade-in-up")}
                 >
                   Putu Arya Pradipta
                 </p>
                 <p
-                  style={{
-                    fontFamily: "glacial-indifference",
-                  }}
-                  className="text-sm"
+                  className={cn(forum.className, "text-sm animate-fade-in-up")}
                 >
                   Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni Rustiani
                 </p>
               </div>
             </div>
-            <div className="flex flex-row-reverse	 items-center mx-8">
+            <div className="flex flex-row-reverse	 items-center mt-10">
               <Image
                 src={Bride.src}
                 width="0"
                 height="0"
                 sizes="100%"
-                className="h-auto w-1/3 my-1 rounded-t-full"
+                className="h-auto w-2/5 my-1 animate-fade-in-up"
                 alt={"bride"}
               />
               <div className="flex flex-col ml-4">
                 <p
-                  style={{
-                    fontFamily: "amsterdam",
-                  }}
-                  className="text-2xl py-5 italic font-light"
+                  className={cn(
+                    theSeason.className,
+                    "text-2xl py-3 font-light text-birutua animate-fade-in-up"
+                  )}
                 >
-                  The Bride
+                  THE BRIDE
                 </p>
                 <p
-                  style={{
-                    fontFamily: "daydream",
-                    color: "#0c006c",
-                  }}
-                  className="text-2xl"
+                  className={cn(forum.className, "text-xl animate-fade-in-up")}
                 >
                   Made Laksmiani Dewi
                 </p>
                 <p
-                  style={{
-                    fontFamily: "glacial-indifference",
-                  }}
-                  className="text-sm"
+                  className={cn(forum.className, "text-sm animate-fade-in-up")}
                 >
                   Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
                 </p>
