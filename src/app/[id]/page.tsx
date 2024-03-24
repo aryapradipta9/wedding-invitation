@@ -270,7 +270,7 @@ export default function Home() {
             }}
             className="flex flex-col items-center justify-center pt-8 h-screen"
           >
-            <AnimateOnScroll>
+            <AnimateOnScroll className="flex flex-col items-center justify-center">
               <p
                 className={cn(
                   theSeason.className,
@@ -289,17 +289,19 @@ export default function Home() {
                 18 Mei 2024
               </p>
             </AnimateOnScroll>
+            <AnimateOnScroll className="flex flex-col items-center justify-center">
+              <Calendar></Calendar>
+              <Button
+                onClick={() => {
+                  window.open(
+                    "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MGFxb2JzbzM4bXU0NGdhcmVuZHZ0OWQ4ZWwgYXJ5YXByYWRpcHRhOUBt&tmsrc=aryapradipta9%40gmail.com"
+                  );
+                }}
+                text={"Jadwalkan via Google Kalender"}
+              ></Button>
+            </AnimateOnScroll>
 
-            <Calendar></Calendar>
-            <Button
-              onClick={() => {
-                window.open(
-                  "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MGFxb2JzbzM4bXU0NGdhcmVuZHZ0OWQ4ZWwgYXJ5YXByYWRpcHRhOUBt&tmsrc=aryapradipta9%40gmail.com"
-                );
-              }}
-              text={"Jadwalkan via Google Kalender"}
-            ></Button>
-            <AnimateOnScroll>
+            <AnimateOnScroll className="flex flex-col items-center justify-center">
               <p
                 className={cn(forum.className, "text-xl text-krem text-center")}
               >
@@ -315,13 +317,15 @@ export default function Home() {
               >
                 Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
               </p>
+
+              <Button
+                onClick={() => {
+                  window.open("https://maps.app.goo.gl/A9GikxuTd7SJpn5o8");
+                }}
+                text={"Lihat di peta"}
+                className="w-1/2"
+              ></Button>
             </AnimateOnScroll>
-            <Button
-              onClick={() => {
-                window.open("https://maps.app.goo.gl/A9GikxuTd7SJpn5o8");
-              }}
-              text={"Lihat di peta"}
-            ></Button>
           </div>
           <div
             style={{

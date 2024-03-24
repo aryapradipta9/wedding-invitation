@@ -4,6 +4,7 @@ type Props = {
   children: React.ReactNode;
   reappear?: boolean;
   threshold?: number;
+  className?: string;
 };
 
 type Options = {
@@ -45,7 +46,12 @@ const useElementOnScreen = (
   return [containerRef, isVisible];
 };
 
-const AnimateOnScroll = ({ children, reappear, threshold = 0.5 }: Props) => {
+const AnimateOnScroll = ({
+  children,
+  reappear,
+  threshold = 0.5,
+  className,
+}: Props) => {
   const [containerRef, isVisible] = useElementOnScreen({
     threshold: threshold,
     reappear: reappear,
@@ -59,7 +65,7 @@ const AnimateOnScroll = ({ children, reappear, threshold = 0.5 }: Props) => {
           isVisible
             ? "opacity-100 blur-none translate-y-0"
             : "opacity-0 blur-md translate-y-10"
-        }  motion-reduce:transition-none motion-reduce:hover:transform-none`}
+        }  motion-reduce:transition-none motion-reduce:hover:transform-none ${className}`}
       >
         {children}
       </div>
