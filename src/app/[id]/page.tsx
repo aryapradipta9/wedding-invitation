@@ -26,11 +26,6 @@ import { Calendar } from "../calendar";
 import { forum, theSeason } from "../font";
 import AnimateOnScroll from "../animate";
 
-type Guest = {
-  fullName: string;
-  shortName: string;
-};
-
 type Comment = {
   timestamp: string;
   name: string;
@@ -118,7 +113,7 @@ export default function Home() {
             <p className={cn(theSeason.className, "text-4xl text-krem")}>
               DEAR {guest.shortName.toUpperCase()}
             </p>
-            <p className={cn(forum.className, "text-xl text-krem mb-20")}>
+            <p className={cn(forum.className, "text-xl text-krem mb-8")}>
               {"you're invited to"}
             </p>
             {/* <p className={cn(theSeason.className, "text-4xl text-krem")}>
@@ -134,7 +129,7 @@ export default function Home() {
               <span className={cn(forum.className)}> & </span>
               <span>Laksmi</span>
             </p>
-            <p className={cn(forum.className, "text-xl text-krem mb-20")}>
+            <p className={cn(forum.className, "text-xl text-krem mb-8")}>
               {"wedding reception"}
             </p>
             <button
@@ -420,6 +415,16 @@ export default function Home() {
               >
                 KONFIRMASI KEHADIRAN
               </p>
+              {guest.accept !== undefined ? (
+                <p
+                  className={cn(
+                    forum.className,
+                    "text-md text-krem text-center"
+                  )}
+                >
+                  Terima kasih telah konfirmasi. Ditunggu kedatangannya
+                </p>
+              ) : undefined}
               <input
                 type="text"
                 value={guest.fullName}
@@ -428,17 +433,19 @@ export default function Home() {
                   "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
                 )}
               ></input>
-              <select
-                id="konfirmasi"
-                name="konfirmasi"
-                className={cn(
-                  forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
-                )}
-              >
-                <option value={"Hadir"}>Hadir</option>
-                <option value={"Tidak hadir"}>Tidak hadir</option>
-              </select>
+              {guest.accept === undefined ? (
+                <select
+                  id="konfirmasi"
+                  name="konfirmasi"
+                  className={cn(
+                    forum.className,
+                    "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
+                  )}
+                >
+                  <option value={"Hadir"}>Hadir</option>
+                  <option value={"Tidak hadir"}>Tidak hadir</option>
+                </select>
+              ) : undefined}
 
               <textarea
                 name="comment"
@@ -447,7 +454,7 @@ export default function Home() {
                 placeholder="Sampaikan ucapan..."
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 bg-opacity-60"
+                  "bg-krem rounded-lg pl-2 mb-1 bg-opacity-60 text-black"
                 )}
               ></textarea>
               <Button
@@ -466,7 +473,7 @@ export default function Home() {
             >
               Comments ({allComments.length})
             </p>
-            <div className="flex flex-col h-1/3 w-5/6 items-center overflow-auto">
+            <div className="flex flex-col h-1/3 w-5/6 items-center overflow-y-auto overflow-x-hidden">
               {allComments.map((c) => {
                 return (
                   <div

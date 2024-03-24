@@ -7,7 +7,7 @@ export async function GET(
 ) {
   const result = await getSheetClient().spreadsheets.values.get({
     spreadsheetId: "125Dgz2B3M2fuW4-nmC2trUnEr9zDOS47agVDUQrbDrQ",
-    range: "Master!A2:D",
+    range: "Master!A2:E",
   });
 
   const values = result.data.values;
@@ -25,6 +25,7 @@ export async function GET(
     id: match[1],
     fullName: match[2],
     shortName: match[3],
+    accept: match[4],
   };
 
   return Response.json(
@@ -64,7 +65,7 @@ export async function POST(
     );
   }
 
-  const guest = {
+  const guest: Guest = {
     rowNo: match[0],
     id: match[1],
     fullName: match[2],
