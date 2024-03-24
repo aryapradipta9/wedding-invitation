@@ -393,7 +393,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-60">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -407,7 +407,7 @@ export default function Home() {
                 <br /> a.n. Putu Arya Pradipta
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-60">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -421,7 +421,7 @@ export default function Home() {
                 <br /> a.n. Made Laksmiani Dewi
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-60">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -436,7 +436,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg bg-opacity-60">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg bg-opacity-75">
               <p
                 className={cn(
                   theSeason.className,
@@ -485,7 +485,7 @@ export default function Home() {
                 value={guest.fullName}
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
+                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-75"
                 )}
                 disabled={true}
               ></input>
@@ -495,7 +495,7 @@ export default function Home() {
                 name="konfirmasi"
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
+                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-75"
                 )}
                 value={kehadiran}
                 onChange={handleKehadiranChange}
@@ -512,7 +512,7 @@ export default function Home() {
                 placeholder="Sampaikan ucapan..."
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 bg-opacity-60 text-black"
+                  "bg-krem rounded-lg pl-2 mb-1 bg-opacity-75 text-black"
                 )}
                 value={komentar}
                 onChange={(e) => setKomentar(e.target.value)}
@@ -529,7 +529,7 @@ export default function Home() {
             <p
               className={cn(
                 forum.className,
-                "text-sm text-krem text-center bg-opacity-60"
+                "text-sm text-krem text-center bg-opacity-75"
               )}
             >
               Comments ({allComments.length})
@@ -539,7 +539,7 @@ export default function Home() {
                 return (
                   <div
                     key={c.timestamp}
-                    className="m-1 bg-krem rounded-lg pl-2 w-full leading-tight bg-opacity-60"
+                    className="m-1 bg-krem rounded-lg pl-2 w-full leading-tight bg-opacity-75"
                   >
                     <p className={cn(forum.className, "text-biru")}>
                       <b>{c.name}</b>
