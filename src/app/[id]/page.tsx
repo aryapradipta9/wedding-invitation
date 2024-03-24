@@ -226,7 +226,7 @@ export default function Home() {
               >
                 Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan
                 Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu/Saudara/i
-                untuk hadir pada Acara Pawiwahan (Pernikahan) kami
+                untuk hadir pada Resepsi Pernikahan kami
               </p>
             </AnimateOnScroll>
             <div className="flex flex-row items-center">
