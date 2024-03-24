@@ -16,6 +16,7 @@ const useElementOnScreen = (
 ): [React.RefObject<HTMLDivElement>, boolean] => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  options.reappear = true;
 
   const makeAppear = (entries: any) => {
     const [entry] = entries;
