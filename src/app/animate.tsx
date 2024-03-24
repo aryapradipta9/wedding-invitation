@@ -61,7 +61,7 @@ const AnimateOnScroll = ({
     <>
       <div
         ref={containerRef}
-        className={`transition duration-1000 w-full ${
+        className={`transition duration-1000 ${
           isVisible
             ? "opacity-100 blur-none translate-y-0"
             : "opacity-0 blur-md translate-y-10"

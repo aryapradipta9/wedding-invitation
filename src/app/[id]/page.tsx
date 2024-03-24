@@ -356,7 +356,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <div className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -369,44 +369,44 @@ export default function Home() {
                 </button>
                 <br /> a.n. Putu Arya Pradipta
               </p>
-            </div>
-            <div className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+            </AnimateOnScroll>
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
-                <b>BRI</b> xxxxx
+                <b>BRI</b> 150401005572506
                 <button
-                  onClick={() => handleCopy("7772102251")}
+                  onClick={() => handleCopy("150401005572506")}
                   className="border"
                 >
                   copy
                 </button>
                 <br /> a.n. Made Laksmiani Dewi
               </p>
-            </div>
-            <div className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+            </AnimateOnScroll>
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
                 <b>Gopay</b> 087882072855
                 <button
-                  onClick={() => handleCopy("7772102251")}
+                  onClick={() => handleCopy("087882072855")}
                   className="border"
                 >
                   copy
                 </button>
                 <br /> a.n. Made Laksmiani Dewi
               </p>
-            </div>
+            </AnimateOnScroll>
 
-            <div className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem">
               <p
                 className={cn(
                   theSeason.className,
                   "text-lg text-biru text-center"
                 )}
               >
-                Alamat
+                <b>Alamat</b>
               </p>
               <p
                 className={cn(forum.className, "text-sm text-biru text-center")}
@@ -414,7 +414,7 @@ export default function Home() {
                 Jl. Robusta 2c blok s5 no 4 rt05 rw06 Kel. Pondok Kopi Kec.
                 Duren Sawit Kota Jakarta Timur 13460
               </p>
-            </div>
+            </AnimateOnScroll>
           </div>
           <div
             style={{
@@ -465,9 +465,9 @@ export default function Home() {
             <Button onClick={() => {}}>Kirim</Button>
 
             <p className={cn(forum.className, "text-sm text-krem text-center")}>
-              xx Comment (s)
+              Comments ({allComments.length})
             </p>
-            <div className="flex flex-col h-1/2 w-full items-center overflow-auto">
+            <div className="flex flex-col h-1/3 w-full items-center overflow-auto">
               {allComments.map((c) => {
                 return (
                   <div
