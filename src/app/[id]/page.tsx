@@ -341,7 +341,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -355,7 +355,7 @@ export default function Home() {
                 <br /> a.n. Putu Arya Pradipta
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -369,7 +369,7 @@ export default function Home() {
                 <br /> a.n. Made Laksmiani Dewi
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -384,7 +384,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg">
               <p
                 className={cn(
                   theSeason.className,
@@ -423,7 +423,7 @@ export default function Home() {
                 value={guest.fullName}
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 h-8"
+                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
                 )}
               ></input>
               <select
@@ -431,7 +431,7 @@ export default function Home() {
                 name="konfirmasi"
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 h-8"
+                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
                 )}
               >
                 <option value={"Hadir"}>Hadir</option>
@@ -443,7 +443,10 @@ export default function Home() {
                 rows={4}
                 cols={30}
                 placeholder="Sampaikan ucapan..."
-                className={cn(forum.className, "bg-krem rounded-lg pl-2 mb-1")}
+                className={cn(
+                  forum.className,
+                  "bg-krem rounded-lg pl-2 mb-1 bg-opacity-60"
+                )}
               ></textarea>
               <Button
                 onClick={() => {}}
@@ -453,15 +456,20 @@ export default function Home() {
               </Button>
             </AnimateOnScroll>
 
-            <p className={cn(forum.className, "text-sm text-krem text-center")}>
+            <p
+              className={cn(
+                forum.className,
+                "text-sm text-krem text-center bg-opacity-60"
+              )}
+            >
               Comments ({allComments.length})
             </p>
-            <div className="flex flex-col h-1/3 w-full items-center overflow-auto">
+            <div className="flex flex-col h-1/3 w-5/6 items-center overflow-auto">
               {allComments.map((c) => {
                 return (
                   <div
                     key={c.timestamp}
-                    className="m-1 bg-krem rounded-lg pl-2 w-3/4 leading-tight"
+                    className="m-1 bg-krem rounded-lg pl-2 w-full leading-tight bg-opacity-60"
                   >
                     <p className={cn(forum.className, "text-biru")}>
                       <b>{c.name}</b>
@@ -503,6 +511,7 @@ export default function Home() {
                   }),
                 });
               }}
+              className={cn(forum.className)}
               text={"Tidak datang"}
             ></Button>
           </div>
