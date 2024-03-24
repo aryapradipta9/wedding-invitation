@@ -33,3 +33,7 @@ body {
   font-family: "amsterdam";
   src: url("/fonts/Amsterdam.ttf");
 }
+
+textarea::placeholder {
+  color: #182b50;
+}
