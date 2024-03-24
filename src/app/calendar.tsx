@@ -3,9 +3,10 @@ export const Calendar = () => {
     return (
       <div
         key={i}
-        className="text-center drop-shadow-xl font-bold"
+        className="text-center font-bold"
         style={{
           color: "#f1d0a7",
+          textShadow: "2px 2px 4px #000000",
         }}
       >
         {i}

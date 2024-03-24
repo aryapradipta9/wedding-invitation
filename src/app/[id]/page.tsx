@@ -308,6 +308,9 @@ export default function Home() {
                   forum.className,
                   "text-2xl text-krem text-center"
                 )}
+                style={{
+                  textShadow: "2px 2px 4px #000000",
+                }}
               >
                 18 Mei 2024
               </p>
@@ -328,16 +331,25 @@ export default function Home() {
             <AnimateOnScroll className="flex flex-col items-center justify-center">
               <p
                 className={cn(forum.className, "text-xl text-krem text-center")}
+                style={{
+                  textShadow: "2px 2px 4px #000000",
+                }}
               >
                 18.00 - 20.00 WIB
               </p>
               <p
                 className={cn(forum.className, "text-xl text-krem text-center")}
+                style={{
+                  textShadow: "2px 2px 4px #000000",
+                }}
               >
                 The Gallery CIBIS Park
               </p>
               <p
                 className={cn(forum.className, "text-md text-krem text-center")}
+                style={{
+                  textShadow: "2px 2px 4px #000000",
+                }}
               >
                 Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
               </p>
