@@ -19,7 +19,7 @@ import PageSix from "../../../public/page6.png";
 import PageSeven from "../../../public/page7.png";
 
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Button } from "../button";
 import { Calendar } from "../calendar";
@@ -41,6 +41,7 @@ export default function Home() {
   const [undanganOpened, setUndanganOpened] = useState<boolean>(false);
   const [komentar, setKomentar] = useState("");
   const [allComments, setAllComments] = useState<Array<Comment>>([]);
+  const [kehadiran, setKehadiran] = useState<string>("Hadir");
 
   useEffect(() => {
     const width = window.innerWidth <= 450 ? window.innerWidth : 450;
@@ -88,6 +89,41 @@ export default function Home() {
   if (guest === undefined) {
     return <>Loading</>;
   }
+
+  const handleKirim = async () => {
+    if (guest.accept === undefined) {
+      // first time. submit kehadiran first
+      let accept = true;
+      if (kehadiran == "Tidak hadir") {
+        accept = false;
+      }
+      await fetch("/api/" + id, {
+        method: "POST",
+        body: JSON.stringify({
+          accept: accept,
+        }),
+      });
+      setGuest({
+        ...guest,
+        accept: accept,
+      });
+    }
+
+    await fetch("/api/comments", {
+      method: "POST",
+      body: JSON.stringify({
+        nama: guest.fullName,
+        komentar: komentar,
+      }),
+    });
+
+    listComments();
+    setKomentar("");
+  };
+
+  const handleKehadiranChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setKehadiran(event.target.value);
+  };
 
   const days = Math.round(Math.abs((start.getTime() - end.getTime()) / oneDay));
 
@@ -441,6 +477,8 @@ export default function Home() {
                     forum.className,
                     "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
                   )}
+                  value={kehadiran}
+                  onChange={handleKehadiranChange}
                 >
                   <option value={"Hadir"}>Hadir</option>
                   <option value={"Tidak hadir"}>Tidak hadir</option>
@@ -456,9 +494,11 @@ export default function Home() {
                   forum.className,
                   "bg-krem rounded-lg pl-2 mb-1 bg-opacity-60 text-black"
                 )}
+                value={komentar}
+                onChange={(e) => setKomentar(e.target.value)}
               ></textarea>
               <Button
-                onClick={() => {}}
+                onClick={handleKirim}
                 className={cn(forum.className, "w-1/2 place-self-center")}
               >
                 Kirim
