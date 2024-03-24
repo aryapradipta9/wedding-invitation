@@ -341,7 +341,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-60">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -355,7 +355,7 @@ export default function Home() {
                 <br /> a.n. Putu Arya Pradipta
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-60">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -369,7 +369,7 @@ export default function Home() {
                 <br /> a.n. Made Laksmiani Dewi
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-60">
               <p
                 className={cn(forum.className, "text-lg text-biru text-center")}
               >
@@ -384,7 +384,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg">
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg bg-opacity-60">
               <p
                 className={cn(
                   theSeason.className,
