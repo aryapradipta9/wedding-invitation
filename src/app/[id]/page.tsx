@@ -25,6 +25,7 @@ import { Button } from "../button";
 import { Calendar } from "../calendar";
 import { forum, theSeason } from "../font";
 import AnimateOnScroll from "../animate";
+import Gallery from "./gallery";
 
 type Comment = {
   timestamp: string;
@@ -551,71 +552,22 @@ export default function Home() {
               })}
             </div>
           </div>
-          <div className="flex flex-col items-center content-center pt-8">
-            <p
-              style={{
-                fontFamily: "glacial-indifference",
-              }}
-              className="text-2xl py-5 italic font-light"
-            >
-              Konfirmasi Kehadiran
-            </p>
-            <Button
-              onClick={() => {
-                fetch("/api/" + id, {
-                  method: "POST",
-                  body: JSON.stringify({
-                    accept: true,
-                  }),
-                });
-              }}
-              text={"Datang"}
-            ></Button>
-            <Button
-              onClick={() => {
-                fetch("/api/" + id, {
-                  method: "POST",
-                  body: JSON.stringify({
-                    accept: false,
-                  }),
-                });
-              }}
-              className={cn(forum.className)}
-              text={"Tidak datang"}
-            ></Button>
-          </div>
-          <p
+          <div
             style={{
-              fontFamily: "glacial-indifference",
+              width: videoWidth,
             }}
-            className="text-2xl py-5 italic font-light"
+            className="flex flex-col pt-8 h-screen px-8 bg-krem"
           >
-            Komentar
-          </p>
-          <input
-            type="text"
-            placeholder="ketik komentar"
-            value={komentar}
-            onChange={(e) => setKomentar(e.target.value)}
-            className="border-black py-2 px-4 border"
-          />
-          <Button
-            onClick={() => {
-              createComments(guest.fullName, komentar).then(() =>
-                listComments()
-              );
-            }}
-            text={"Submit"}
-          ></Button>
-
-          {allComments.map((c) => {
-            return (
-              <div key={c.timestamp} className="border-2 m-5">
-                <p>Nama: {c.name}</p>
-                <p>Komentar: {c.comment}</p>
-              </div>
-            );
-          })}
+            <p
+              className={cn(theSeason.className, "text-xl text-kuning")}
+              style={{
+                textShadow: "1px 1px 4px #000000",
+              }}
+            >
+              GALLERY
+            </p>
+            <Gallery />
+          </div>
         </div>
       </main>
     </>
