@@ -178,83 +178,67 @@ export default function Home() {
             className="flex flex-col items-center justify-center"
           >
             <div className="flex flex-row items-center">
-              <Image
-                src={Groom.src}
-                width="0"
-                height="0"
-                sizes="100%"
-                className="h-auto w-2/5 my-1 animate-fade-in-up"
-                alt={"groom"}
-                style={{
-                  boxShadow: "8px 8px #EDE3D9",
-                }}
-              />
+              <AnimateOnScroll className="w-2/3">
+                <Image
+                  src={Groom.src}
+                  width="0"
+                  height="0"
+                  sizes="100%"
+                  className="h-auto w-auto my-1"
+                  alt={"groom"}
+                  style={{
+                    boxShadow: "8px 8px #EDE3D9",
+                  }}
+                />
+              </AnimateOnScroll>
               <div className="flex flex-col ml-4 mr-1">
                 <AnimateOnScroll>
                   <p
                     className={cn(
                       theSeason.className,
-                      "text-2xl py-3 font-light text-birutua animate-fade-in-up"
+                      "text-2xl py-3 font-light text-birutua"
                     )}
                   >
                     THE GROOM
                   </p>
-                  <p
-                    className={cn(
-                      forum.className,
-                      "text-xl animate-fade-in-up"
-                    )}
-                  >
+                  <p className={cn(forum.className, "text-xl")}>
                     Putu Arya Pradipta
                   </p>
-                  <p
-                    className={cn(
-                      forum.className,
-                      "text-sm animate-fade-in-up"
-                    )}
-                  >
+                  <p className={cn(forum.className, "text-sm")}>
                     Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni
                     Rustiani
                   </p>
                 </AnimateOnScroll>
               </div>
             </div>
-            <div className="flex flex-row-reverse	 items-center mt-10">
-              <Image
-                src={Bride.src}
-                width="0"
-                height="0"
-                sizes="100%"
-                className="h-auto w-2/5 my-1 animate-fade-in-up shadow-md"
-                alt={"bride"}
-                style={{
-                  boxShadow: "-8px 8px #EDE3D9",
-                }}
-              />
+            <div className="flex flex-row-reverse	items-center mt-10">
+              <AnimateOnScroll className="w-2/3">
+                <Image
+                  src={Bride.src}
+                  width="0"
+                  height="0"
+                  sizes="100%"
+                  className="h-auto w-auto my-1 shadow-md"
+                  alt={"bride"}
+                  style={{
+                    boxShadow: "-8px 8px #EDE3D9",
+                  }}
+                />
+              </AnimateOnScroll>
               <div className="flex flex-col mr-4 ml-1">
                 <AnimateOnScroll>
                   <p
                     className={cn(
                       theSeason.className,
-                      "text-2xl py-3 font-light text-birutua animate-fade-in-up"
+                      "text-2xl py-3 font-light text-birutua "
                     )}
                   >
                     THE BRIDE
                   </p>
-                  <p
-                    className={cn(
-                      forum.className,
-                      "text-xl animate-fade-in-up"
-                    )}
-                  >
+                  <p className={cn(forum.className, "text-xl ")}>
                     Made Laksmiani Dewi
                   </p>
-                  <p
-                    className={cn(
-                      forum.className,
-                      "text-sm animate-fade-in-up"
-                    )}
-                  >
+                  <p className={cn(forum.className, "text-sm ")}>
                     Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu
                     Saraswati
                   </p>

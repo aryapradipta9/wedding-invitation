@@ -65,7 +65,9 @@ const AnimateOnScroll = ({
           isVisible
             ? "opacity-100 blur-none translate-y-0"
             : "opacity-0 blur-md translate-y-10"
-        }  motion-reduce:transition-none motion-reduce:hover:transform-none ${className}`}
+        }  motion-reduce:transition-none motion-reduce:hover:transform-none ${
+          className ?? ""
+        }`}
       >
         {children}
       </div>
