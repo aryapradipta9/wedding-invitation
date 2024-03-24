@@ -42,6 +42,7 @@ export default function Home() {
   const [komentar, setKomentar] = useState("");
   const [allComments, setAllComments] = useState<Array<Comment>>([]);
   const [kehadiran, setKehadiran] = useState<string>("Hadir");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const width = window.innerWidth <= 450 ? window.innerWidth : 450;
@@ -91,6 +92,7 @@ export default function Home() {
   }
 
   const handleKirim = async () => {
+    setIsLoading(true);
     if (guest.accept === undefined) {
       // first time. submit kehadiran first
       let accept = true;
@@ -109,16 +111,20 @@ export default function Home() {
       });
     }
 
-    await fetch("/api/comments", {
-      method: "POST",
-      body: JSON.stringify({
-        nama: guest.fullName,
-        komentar: komentar,
-      }),
-    });
+    if (komentar !== "") {
+      await fetch("/api/comments", {
+        method: "POST",
+        body: JSON.stringify({
+          nama: guest.fullName,
+          komentar: komentar,
+        }),
+      });
 
-    listComments();
-    setKomentar("");
+      listComments();
+      setKomentar("");
+    }
+
+    setIsLoading(false);
   };
 
   const handleKehadiranChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -458,7 +464,7 @@ export default function Home() {
                     "text-md text-krem text-center"
                   )}
                 >
-                  Terima kasih telah konfirmasi. Ditunggu kedatangannya
+                  Terima kasih atas konfirmasinya
                 </p>
               ) : undefined}
               <input
@@ -468,22 +474,23 @@ export default function Home() {
                   forum.className,
                   "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
                 )}
+                disabled={true}
               ></input>
-              {guest.accept === undefined ? (
-                <select
-                  id="konfirmasi"
-                  name="konfirmasi"
-                  className={cn(
-                    forum.className,
-                    "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
-                  )}
-                  value={kehadiran}
-                  onChange={handleKehadiranChange}
-                >
-                  <option value={"Hadir"}>Hadir</option>
-                  <option value={"Tidak hadir"}>Tidak hadir</option>
-                </select>
-              ) : undefined}
+
+              <select
+                id="konfirmasi"
+                name="konfirmasi"
+                className={cn(
+                  forum.className,
+                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-60"
+                )}
+                value={kehadiran}
+                onChange={handleKehadiranChange}
+                disabled={guest.accept !== undefined}
+              >
+                <option value={"Hadir"}>Hadir</option>
+                <option value={"Tidak hadir"}>Tidak hadir</option>
+              </select>
 
               <textarea
                 name="comment"
@@ -500,8 +507,9 @@ export default function Home() {
               <Button
                 onClick={handleKirim}
                 className={cn(forum.className, "w-1/2 place-self-center")}
+                disabled={isLoading}
               >
-                Kirim
+                {isLoading ? "Mengirim..." : "Kirim"}
               </Button>
             </AnimateOnScroll>
 
