@@ -3,6 +3,7 @@ export const Calendar = () => {
     return (
       <div
         key={i}
+        className="text-center drop-shadow-xl font-bold"
         style={{
           color: "#f1d0a7",
         }}
@@ -45,7 +46,7 @@ export const Calendar = () => {
   });
 
   return (
-    <div className="grid grid-cols-7 text-white content-center border-2 border-white p-1 rounded-2xl bg-kuning bg-opacity-60 px-4">
+    <div className="grid grid-cols-7 text-white content-center p-1 rounded-2xl bg-kuning bg-opacity-60 px-2">
       {days}
       {spacer}
       {dates}

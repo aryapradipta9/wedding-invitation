@@ -298,6 +298,7 @@ export default function Home() {
                   );
                 }}
                 text={"Jadwalkan via Google Kalender"}
+                className={cn(forum.className)}
               ></Button>
             </AnimateOnScroll>
 
@@ -323,7 +324,7 @@ export default function Home() {
                   window.open("https://maps.app.goo.gl/A9GikxuTd7SJpn5o8");
                 }}
                 text={"Lihat di peta"}
-                className="w-1/2"
+                className={cn(forum.className, "w-1/2")}
               ></Button>
             </AnimateOnScroll>
           </div>
