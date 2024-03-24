@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { getSheetClient } from "../client";
+import { Guest } from "@/app/entity";
 
 export async function GET(
   _request: Request,
@@ -25,7 +26,8 @@ export async function GET(
     id: match[1],
     fullName: match[2],
     shortName: match[3],
-    accept: match[4],
+    lokasiUndangan: match[4],
+    accept: match[5],
   };
 
   return Response.json(
@@ -70,7 +72,8 @@ export async function POST(
     id: match[1],
     fullName: match[2],
     shortName: match[3],
-    accept: match[4],
+    lokasiUndangan: match[4],
+    accept: match[5],
   };
 
   await getSheetClient().spreadsheets.values.update({

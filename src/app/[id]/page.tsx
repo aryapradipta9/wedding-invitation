@@ -26,6 +26,7 @@ import { Calendar } from "../calendar";
 import { forum, theSeason } from "../font";
 import AnimateOnScroll from "../animate";
 import Gallery from "./gallery";
+import { Guest, configUndangan } from "../entity";
 
 type Comment = {
   timestamp: string;
@@ -91,6 +92,8 @@ export default function Home() {
   if (guest === undefined) {
     return <>Loading</>;
   }
+
+  const config = configUndangan[guest?.lokasiUndangan];
 
   const handleKirim = async () => {
     setIsLoading(true);
@@ -225,7 +228,7 @@ export default function Home() {
               >
                 Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan
                 Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu/Saudara/i
-                untuk hadir pada Resepsi Pernikahan kami
+                untuk hadir pada {config.namaEvent} kami
               </p>
             </AnimateOnScroll>
             <div className="flex flex-row items-center">
@@ -324,11 +327,11 @@ export default function Home() {
                   textShadow: "2px 2px 4px #000000",
                 }}
               >
-                18 Mei 2024
+                {config.tanggal} Mei 2024
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll className="flex flex-col items-center justify-center">
-              <Calendar></Calendar>
+              <Calendar tanggal={config.tanggal}></Calendar>
               <Button
                 onClick={() => {
                   window.open(
@@ -347,7 +350,7 @@ export default function Home() {
                   textShadow: "2px 2px 4px #000000",
                 }}
               >
-                18.00 - 20.00 WIB
+                {config.waktu}
               </p>
               <p
                 className={cn(forum.className, "text-xl text-krem text-center")}
@@ -355,7 +358,7 @@ export default function Home() {
                   textShadow: "2px 2px 4px #000000",
                 }}
               >
-                The Gallery CIBIS Park
+                {config.tempat}
               </p>
               <p
                 className={cn(forum.className, "text-md text-krem text-center")}
@@ -363,12 +366,12 @@ export default function Home() {
                   textShadow: "2px 2px 4px #000000",
                 }}
               >
-                Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
+                {config.alamat}
               </p>
 
               <Button
                 onClick={() => {
-                  window.open("https://maps.app.goo.gl/A9GikxuTd7SJpn5o8");
+                  window.open(config.mapsLink);
                 }}
                 text={"Lihat di peta"}
                 className={cn(forum.className, "w-1/2")}
@@ -447,22 +450,27 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg bg-opacity-75">
-              <p
-                className={cn(
-                  theSeason.className,
-                  "text-lg text-biru text-center"
-                )}
-              >
-                <b>Alamat</b>
-              </p>
-              <p
-                className={cn(forum.className, "text-sm text-biru text-center")}
-              >
-                Jl. Robusta 2c blok s5 no 4 rt05 rw06 Kel. Pondok Kopi Kec.
-                Duren Sawit Kota Jakarta Timur 13460
-              </p>
-            </AnimateOnScroll>
+            {config.showAlamatOnHadiah && (
+              <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg bg-opacity-75">
+                <p
+                  className={cn(
+                    theSeason.className,
+                    "text-lg text-biru text-center"
+                  )}
+                >
+                  <b>Alamat</b>
+                </p>
+                <p
+                  className={cn(
+                    forum.className,
+                    "text-sm text-biru text-center"
+                  )}
+                >
+                  Jl. Robusta 2c blok s5 no 4 rt05 rw06 Kel. Pondok Kopi Kec.
+                  Duren Sawit Kota Jakarta Timur 13460
+                </p>
+              </AnimateOnScroll>
+            )}
           </div>
           <div
             style={{

@@ -1,4 +1,8 @@
-export const Calendar = () => {
+interface CalendarProps {
+  tanggal: number;
+}
+
+export const Calendar = ({ tanggal }: CalendarProps) => {
   const days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((i) => {
     return (
       <div
@@ -17,7 +21,7 @@ export const Calendar = () => {
     return <div key={i + "SPACER"}></div>;
   });
   const dates = Array.from({ length: 30 }, (_, i) => i + 1).map((i) => {
-    if (i == 18) {
+    if (i == tanggal) {
       return (
         <div
           key={i}
@@ -27,7 +31,7 @@ export const Calendar = () => {
             clipPath: "polygon(-41% 0, 50% 91%, 141% 0)",
           }}
         >
-          18
+          {i}
         </div>
       );
     } else {
