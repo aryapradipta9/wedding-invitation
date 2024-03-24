@@ -217,6 +217,18 @@ export default function Home() {
             }}
             className="flex flex-col items-center justify-center"
           >
+            <AnimateOnScroll>
+              <p
+                className={cn(
+                  forum.className,
+                  "text-sm p-2 text-left mx-5 text-center leading-tight"
+                )}
+              >
+                Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan
+                Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu/Saudara/i
+                untuk hadir pada Acara Pawiwahan (Pernikahan) kami
+              </p>
+            </AnimateOnScroll>
             <div className="flex flex-row items-center">
               <AnimateOnScroll className="w-2/3">
                 <Image
@@ -251,7 +263,7 @@ export default function Home() {
                 </AnimateOnScroll>
               </div>
             </div>
-            <div className="flex flex-row-reverse	items-center mt-10">
+            <div className="flex flex-row-reverse	items-center mt-5">
               <AnimateOnScroll className="w-2/3">
                 <Image
                   src={Bride.src}
