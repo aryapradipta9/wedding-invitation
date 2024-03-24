@@ -128,9 +128,11 @@ export default function Home() {
               style={{
                 fontFamily: "daydream",
               }}
-              className="text-5xl text-krem"
+              className="text-5xl text-krem mb-2"
             >
-              {"Arya & Laksmi"}
+              <span>Arya</span>
+              <span className={cn(forum.className)}> & </span>
+              <span>Laksmi</span>
             </p>
             <p className={cn(forum.className, "text-xl text-krem mb-20")}>
               {"wedding reception"}
