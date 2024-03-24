@@ -57,7 +57,7 @@ const AnimateOnScroll = ({ children, reappear, threshold = 0.5 }: Props) => {
         className={`transition duration-1000 w-full ${
           isVisible
             ? "opacity-100 blur-none translate-y-0"
-            : "opacity-0 blur-lg translate-y-20"
+            : "opacity-0 blur-md translate-y-10"
         }  motion-reduce:transition-none motion-reduce:hover:transform-none`}
       >
         {children}

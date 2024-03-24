@@ -24,6 +24,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Button } from "../button";
 import { Calendar } from "../calendar";
 import { forum, theSeason } from "../font";
+import AnimateOnScroll from "../animate";
 
 type Guest = {
   fullName: string;
@@ -154,26 +155,18 @@ export default function Home() {
             }}
             className="flex flex-col items-center pt-12 h-screen"
           >
-            <p
-              className={cn(
-                forum.className,
-                "text-lg p-2 text-left animate-fade-in-up mx-5"
-              )}
-            >
-              &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan
-              ini tanpa terpisahkan, panjang umur, semoga pernikahan ini
-              dianugrahkan putra-putri dan cucu yang memberi penghiburan,
-              tinggal di rumah yang penuh kebahagiaan&#34;
-            </p>
+            <AnimateOnScroll>
+              <p className={cn(forum.className, "text-lg p-2 text-left mx-5")}>
+                &#34;Ya Tuhan Yang Maha Pengasih, anugrahkanlah kepada pasangan
+                ini tanpa terpisahkan, panjang umur, semoga pernikahan ini
+                dianugrahkan putra-putri dan cucu yang memberi penghiburan,
+                tinggal di rumah yang penuh kebahagiaan&#34;
+              </p>
 
-            <p
-              className={cn(
-                forum.className,
-                "text-lg p-2 text-left animate-fade-in-up mx-5"
-              )}
-            >
-              Reg Weda X. 85.42
-            </p>
+              <p className={cn(forum.className, "text-lg p-2 text-left mx-5")}>
+                Reg Weda X. 85.42
+              </p>
+            </AnimateOnScroll>
           </div>
           <div
             style={{
@@ -197,24 +190,33 @@ export default function Home() {
                 }}
               />
               <div className="flex flex-col ml-4 mr-1">
-                <p
-                  className={cn(
-                    theSeason.className,
-                    "text-2xl py-3 font-light text-birutua animate-fade-in-up"
-                  )}
-                >
-                  THE GROOM
-                </p>
-                <p
-                  className={cn(forum.className, "text-xl animate-fade-in-up")}
-                >
-                  Putu Arya Pradipta
-                </p>
-                <p
-                  className={cn(forum.className, "text-sm animate-fade-in-up")}
-                >
-                  Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni Rustiani
-                </p>
+                <AnimateOnScroll>
+                  <p
+                    className={cn(
+                      theSeason.className,
+                      "text-2xl py-3 font-light text-birutua animate-fade-in-up"
+                    )}
+                  >
+                    THE GROOM
+                  </p>
+                  <p
+                    className={cn(
+                      forum.className,
+                      "text-xl animate-fade-in-up"
+                    )}
+                  >
+                    Putu Arya Pradipta
+                  </p>
+                  <p
+                    className={cn(
+                      forum.className,
+                      "text-sm animate-fade-in-up"
+                    )}
+                  >
+                    Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni
+                    Rustiani
+                  </p>
+                </AnimateOnScroll>
               </div>
             </div>
             <div className="flex flex-row-reverse	 items-center mt-10">
@@ -230,24 +232,33 @@ export default function Home() {
                 }}
               />
               <div className="flex flex-col mr-4 ml-1">
-                <p
-                  className={cn(
-                    theSeason.className,
-                    "text-2xl py-3 font-light text-birutua animate-fade-in-up"
-                  )}
-                >
-                  THE BRIDE
-                </p>
-                <p
-                  className={cn(forum.className, "text-xl animate-fade-in-up")}
-                >
-                  Made Laksmiani Dewi
-                </p>
-                <p
-                  className={cn(forum.className, "text-sm animate-fade-in-up")}
-                >
-                  Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu Saraswati
-                </p>
+                <AnimateOnScroll>
+                  <p
+                    className={cn(
+                      theSeason.className,
+                      "text-2xl py-3 font-light text-birutua animate-fade-in-up"
+                    )}
+                  >
+                    THE BRIDE
+                  </p>
+                  <p
+                    className={cn(
+                      forum.className,
+                      "text-xl animate-fade-in-up"
+                    )}
+                  >
+                    Made Laksmiani Dewi
+                  </p>
+                  <p
+                    className={cn(
+                      forum.className,
+                      "text-sm animate-fade-in-up"
+                    )}
+                  >
+                    Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu
+                    Saraswati
+                  </p>
+                </AnimateOnScroll>
               </div>
             </div>
           </div>
@@ -259,19 +270,25 @@ export default function Home() {
             }}
             className="flex flex-col items-center justify-center pt-8 h-screen"
           >
-            <p
-              className={cn(
-                theSeason.className,
-                "text-4xl text-krem text-center"
-              )}
-            >
-              MARK YOUR CALENDAR
-            </p>
-            <p
-              className={cn(forum.className, "text-2xl text-krem text-center")}
-            >
-              18 Mei 2024
-            </p>
+            <AnimateOnScroll>
+              <p
+                className={cn(
+                  theSeason.className,
+                  "text-4xl text-krem text-center"
+                )}
+              >
+                MARK YOUR CALENDAR
+              </p>
+
+              <p
+                className={cn(
+                  forum.className,
+                  "text-2xl text-krem text-center"
+                )}
+              >
+                18 Mei 2024
+              </p>
+            </AnimateOnScroll>
 
             <Calendar></Calendar>
             <Button
@@ -282,15 +299,23 @@ export default function Home() {
               }}
               text={"Jadwalkan via Google Kalender"}
             ></Button>
-            <p className={cn(forum.className, "text-xl text-krem text-center")}>
-              18.00 - 20.00 WIB
-            </p>
-            <p className={cn(forum.className, "text-xl text-krem text-center")}>
-              The Gallery CIBIS Park
-            </p>
-            <p className={cn(forum.className, "text-md text-krem text-center")}>
-              Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
-            </p>
+            <AnimateOnScroll>
+              <p
+                className={cn(forum.className, "text-xl text-krem text-center")}
+              >
+                18.00 - 20.00 WIB
+              </p>
+              <p
+                className={cn(forum.className, "text-xl text-krem text-center")}
+              >
+                The Gallery CIBIS Park
+              </p>
+              <p
+                className={cn(forum.className, "text-md text-krem text-center")}
+              >
+                Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan
+              </p>
+            </AnimateOnScroll>
             <Button
               onClick={() => {
                 window.open("https://maps.app.goo.gl/A9GikxuTd7SJpn5o8");
@@ -306,24 +331,26 @@ export default function Home() {
             }}
             className="flex flex-col items-center justify-center h-screen px-2 "
           >
-            <p
-              className={cn(
-                theSeason.className,
-                "text-4xl text-krem text-center"
-              )}
-            >
-              WEDDING GIFT
-            </p>
-            <p
-              className={cn(
-                forum.className,
-                "text-md text-krem text-center mb-5"
-              )}
-            >
-              Doa restu Anda merupakan hadiah yang tidak dapat tergantikan.
-              Tanpa mengurangi rasa hormat, Anda dapat memberikan hadiah dalam
-              bentuk lainnya.
-            </p>
+            <AnimateOnScroll>
+              <p
+                className={cn(
+                  theSeason.className,
+                  "text-4xl text-krem text-center"
+                )}
+              >
+                WEDDING GIFT
+              </p>
+              <p
+                className={cn(
+                  forum.className,
+                  "text-md text-krem text-center mb-5"
+                )}
+              >
+                Doa restu Anda merupakan hadiah yang tidak dapat tergantikan.
+                Tanpa mengurangi rasa hormat, Anda dapat memberikan hadiah dalam
+                bentuk lainnya.
+              </p>
+            </AnimateOnScroll>
 
             <div className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2">
               <p
