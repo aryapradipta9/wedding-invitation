@@ -409,45 +409,49 @@ export default function Home() {
             }}
             className="flex flex-col items-center justify-center h-screen px-2 "
           >
-            <p
-              className={cn(
-                theSeason.className,
-                "text-xl text-krem text-center"
-              )}
-            >
-              KONFIRMASI KEHADIRAN
-            </p>
-            <input
-              type="text"
-              value={guest.fullName}
-              className={cn(
-                forum.className,
-                "bg-krem rounded-lg pl-2 w-3/4 mb-1 h-8"
-              )}
-            ></input>
-            <select
-              id="konfirmasi"
-              name="konfirmasi"
-              className={cn(
-                forum.className,
-                "bg-krem rounded-lg pl-2 w-3/4 mb-1 h-8"
-              )}
-            >
-              <option value={"Hadir"}>Hadir</option>
-              <option value={"Tidak hadir"}>Tidak hadir</option>
-            </select>
+            <AnimateOnScroll className="flex flex-col w-5/6">
+              <p
+                className={cn(
+                  theSeason.className,
+                  "text-xl text-krem text-center"
+                )}
+              >
+                KONFIRMASI KEHADIRAN
+              </p>
+              <input
+                type="text"
+                value={guest.fullName}
+                className={cn(
+                  forum.className,
+                  "bg-krem rounded-lg pl-2 mb-1 h-8"
+                )}
+              ></input>
+              <select
+                id="konfirmasi"
+                name="konfirmasi"
+                className={cn(
+                  forum.className,
+                  "bg-krem rounded-lg pl-2 mb-1 h-8"
+                )}
+              >
+                <option value={"Hadir"}>Hadir</option>
+                <option value={"Tidak hadir"}>Tidak hadir</option>
+              </select>
 
-            <textarea
-              name="comment"
-              rows={4}
-              cols={30}
-              placeholder="Sampaikan ucapan..."
-              className={cn(
-                forum.className,
-                "bg-krem rounded-lg pl-2 w-3/4 mb-1"
-              )}
-            ></textarea>
-            <Button onClick={() => {}}>Kirim</Button>
+              <textarea
+                name="comment"
+                rows={4}
+                cols={30}
+                placeholder="Sampaikan ucapan..."
+                className={cn(forum.className, "bg-krem rounded-lg pl-2 mb-1")}
+              ></textarea>
+              <Button
+                onClick={() => {}}
+                className={cn(forum.className, "w-1/2 place-self-center")}
+              >
+                Kirim
+              </Button>
+            </AnimateOnScroll>
 
             <p className={cn(forum.className, "text-sm text-krem text-center")}>
               Comments ({allComments.length})
