@@ -213,9 +213,8 @@ export default function Home() {
               backgroundImage: `url(${PageThree.src})`,
               backgroundSize: "cover",
               width: videoWidth,
-              height: "100vh",
             }}
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center  h-screen"
           >
             <AnimateOnScroll>
               <p
@@ -230,7 +229,7 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
             <div className="flex flex-row items-center">
-              <AnimateOnScroll className="w-2/3">
+              <AnimateOnScroll className="w-1/2">
                 <Image
                   src={Groom.src}
                   width="0"
@@ -264,7 +263,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-row-reverse	items-center mt-5">
-              <AnimateOnScroll className="w-2/3">
+              <AnimateOnScroll className="w-1/2">
                 <Image
                   src={Bride.src}
                   width="0"
@@ -531,10 +530,15 @@ export default function Home() {
               ></textarea>
               <Button
                 onClick={handleKirim}
-                className={cn(forum.className, "w-1/2 place-self-center")}
+                className={cn(
+                  forum.className,
+                  "w-1/2 place-self-center bg-birunavy"
+                )}
                 disabled={isLoading}
               >
-                {isLoading ? "Mengirim..." : "Kirim"}
+                <p className={cn(forum.className, "text-xl text-putihgading")}>
+                  {isLoading ? "Mengirim..." : "Kirim"}
+                </p>
               </Button>
             </AnimateOnScroll>
 
