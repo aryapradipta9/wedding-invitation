@@ -20,7 +20,7 @@ export const Calendar = () => {
       return (
         <div
           key={i}
-          className="rounded-full border-2 text-center"
+          className="rounded-full border-2 text-center animate-pulse"
           style={{
             borderImage: "radial-gradient(red 69%, #0000 70%) 84.5%/50%",
             clipPath: "polygon(-41% 0, 50% 91%, 141% 0)",
