@@ -1,4 +1,6 @@
-import PhotoAlbum from "react-photo-album";
+import PhotoAlbum, { RenderPhotoProps } from "react-photo-album";
+import Image from "next/image";
+
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -21,6 +23,23 @@ const photos = [
   { src: "/gallery/TB2_2188.jpg", width: 800, height: 600 },
 ];
 
+function NextJsImage({
+  photo,
+  imageProps: { alt, title, sizes, className, onClick },
+  wrapperStyle,
+}: RenderPhotoProps) {
+  return (
+    <div style={{ ...wrapperStyle, position: "relative" }}>
+      <Image
+        fill
+        src={photo}
+        placeholder={"blurDataURL" in photo ? "blur" : undefined}
+        {...{ alt, title, sizes, className, onClick }}
+      />
+    </div>
+  );
+}
+
 export default function Gallery() {
   const [index, setIndex] = useState(-1);
 
@@ -30,6 +49,7 @@ export default function Gallery() {
         layout="rows"
         photos={photos}
         onClick={({ index }) => setIndex(index)}
+        renderPhoto={NextJsImage}
       />
       <Lightbox
         slides={photos}
