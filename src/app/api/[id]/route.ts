@@ -78,7 +78,7 @@ export async function POST(
 
   await getSheetClient().spreadsheets.values.update({
     spreadsheetId: "125Dgz2B3M2fuW4-nmC2trUnEr9zDOS47agVDUQrbDrQ",
-    range: "Master!E" + guest.rowNo,
+    range: "Master!F" + guest.rowNo,
     valueInputOption: "RAW",
     requestBody: {
       values: [[accept]],
