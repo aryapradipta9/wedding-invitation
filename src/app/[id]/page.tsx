@@ -451,7 +451,7 @@ export default function Home() {
             </AnimateOnScroll>
 
             {config.showAlamatOnHadiah && (
-              <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-24 w-3/4 bg-krem rounded-lg bg-opacity-75">
+              <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-28 w-3/4 bg-krem rounded-lg bg-opacity-75">
                 <p
                   className={cn(
                     theSeason.className,
@@ -463,10 +463,18 @@ export default function Home() {
                 <p
                   className={cn(
                     forum.className,
-                    "text-sm text-biru text-center"
+                    "text-sm text-biru text-center leading-tight"
                   )}
                 >
-                  Jl. Robusta 2c blok s5 no 4 rt05 rw06 Kel. Pondok Kopi Kec.
+                  <b>Made Laksmiani Dewi</b>
+                </p>
+                <p
+                  className={cn(
+                    forum.className,
+                    "text-sm text-biru text-center leading-tight"
+                  )}
+                >
+                  Jl. Robusta 2C Blok S5 No 4 RT05 RW06 Kel. Pondok Kopi Kec.
                   Duren Sawit Kota Jakarta Timur 13460
                 </p>
               </AnimateOnScroll>
