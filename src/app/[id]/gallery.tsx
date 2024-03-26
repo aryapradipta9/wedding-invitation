@@ -13,14 +13,24 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { useState } from "react";
 
 const photos = [
-  { src: "/gallery/TB2_2142.jpg", width: 800, height: 600 },
-  { src: "/gallery/TB2_2219.jpg", width: 800, height: 600 },
-  { src: "/gallery/TB2_2253.jpg", width: 800, height: 600 },
-  { src: "/gallery/TB2_2196.jpg", width: 600, height: 800 },
-  { src: "/gallery/TB2_2269.jpg", width: 600, height: 800 },
-  { src: "/gallery/TB1_8096.jpg", width: 800, height: 600 },
-  { src: "/gallery/TB1_8045.jpg", width: 800, height: 600 },
-  { src: "/gallery/TB2_2188.jpg", width: 800, height: 600 },
+  { src: "/gallery/TB2_2142.jpg", width: 900, height: 600 },
+  { src: "/gallery/TB2_2219.jpg", width: 900, height: 600 },
+  { src: "/gallery/TB2_2253.jpg", width: 900, height: 600 },
+  { src: "/gallery/TB2_2196.jpg", width: 600, height: 900 },
+  { src: "/gallery/TB2_2269.jpg", width: 600, height: 900 },
+  { src: "/gallery/TB1_8096.jpg", width: 900, height: 600 },
+  { src: "/gallery/TB1_8045.jpg", width: 900, height: 600 },
+  { src: "/gallery/TB2_2188.jpg", width: 900, height: 600 },
+  // jakarta
+  { src: "/gallery2/j5.JPG", width: 900, height: 600 },
+  { src: "/gallery2/j2.JPG", width: 900, height: 600 },
+  { src: "/gallery2/j3.JPG", width: 600, height: 900 },
+  { src: "/gallery2/j4.JPG", width: 600, height: 900 },
+  { src: "/gallery2/j1.JPG", width: 900, height: 600 },
+  { src: "/gallery2/j6.JPG", width: 900, height: 600 },
+  { src: "/gallery2/j9.JPG", width: 600, height: 900 },
+  { src: "/gallery2/j8.JPG", width: 600, height: 900 },
+  { src: "/gallery2/j7.JPG", width: 900, height: 600 },
 ];
 
 function NextJsImage({

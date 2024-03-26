@@ -588,7 +588,7 @@ export default function Home() {
             style={{
               width: videoWidth,
             }}
-            className="flex flex-col pt-8 h-screen px-8 bg-krem"
+            className="flex flex-col p-8 bg-krem"
           >
             <p
               className={cn(theSeason.className, "text-xl text-kuning")}
