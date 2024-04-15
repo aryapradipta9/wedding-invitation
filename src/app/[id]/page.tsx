@@ -18,6 +18,8 @@ import PageFive from "../../../public/page5.png";
 import PageSix from "../../../public/page6.png";
 import PageSeven from "../../../public/page7.png";
 
+import Copy from "../../../public/copy.svg";
+
 import { useParams } from "next/navigation";
 import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
@@ -258,7 +260,13 @@ export default function Home() {
                   <p className={cn(forum.className, "text-xl")}>
                     Putu Arya Pradipta
                   </p>
-                  <p className={cn(forum.className, "text-sm")}>
+                  <p
+                    className={cn(
+                      forum.className,
+                      "text-sm text-black",
+                      config.showFamily ? "" : "text-opacity-0"
+                    )}
+                  >
                     Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni
                     Rustiani
                   </p>
@@ -292,7 +300,13 @@ export default function Home() {
                   <p className={cn(forum.className, "text-xl ")}>
                     Made Laksmiani Dewi
                   </p>
-                  <p className={cn(forum.className, "text-sm ")}>
+                  <p
+                    className={cn(
+                      forum.className,
+                      "text-sm text-black",
+                      config.showFamily ? "" : "text-opacity-0"
+                    )}
+                  >
                     Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu
                     Saraswati
                   </p>
@@ -330,17 +344,20 @@ export default function Home() {
                 {config.tanggal} Mei 2024
               </p>
             </AnimateOnScroll>
+
             <AnimateOnScroll className="flex flex-col items-center justify-center">
               <Calendar tanggal={config.tanggal}></Calendar>
-              <Button
-                onClick={() => {
-                  window.open(
-                    "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MGFxb2JzbzM4bXU0NGdhcmVuZHZ0OWQ4ZWwgYXJ5YXByYWRpcHRhOUBt&tmsrc=aryapradipta9%40gmail.com"
-                  );
-                }}
-                text={"Jadwalkan via Google Kalender"}
-                className={cn(forum.className)}
-              ></Button>
+              {config.showGCal && (
+                <Button
+                  onClick={() => {
+                    window.open(
+                      "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MGFxb2JzbzM4bXU0NGdhcmVuZHZ0OWQ4ZWwgYXJ5YXByYWRpcHRhOUBt&tmsrc=aryapradipta9%40gmail.com"
+                    );
+                  }}
+                  text={"Jadwalkan via Google Kalender"}
+                  className={cn(forum.className)}
+                ></Button>
+              )}
             </AnimateOnScroll>
 
             <AnimateOnScroll className="flex flex-col items-center justify-center">
@@ -407,48 +424,54 @@ export default function Home() {
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75">
-              <p
-                className={cn(forum.className, "text-lg text-biru text-center")}
-              >
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-1 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75 text-lg text-biru text-center  ">
+              <div className={cn(forum.className, "flex flex-row")}>
                 <b>BCA</b> 7772102251
-                <button
+                <Image
+                  src={Copy}
+                  alt="copy"
+                  width={25}
+                  height={25}
                   onClick={() => handleCopy("7772102251")}
-                  className="border"
-                >
-                  copy
-                </button>
-                <br /> a.n. Putu Arya Pradipta
-              </p>
+                  className="border mx-2"
+                ></Image>
+              </div>{" "}
+              a.n. Putu Arya Pradipta
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75">
-              <p
-                className={cn(forum.className, "text-lg text-biru text-center")}
-              >
-                <b>BRI</b> 150401005572506
-                <button
+            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-1 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75 text-lg text-biru text-center  ">
+              <div className={cn(forum.className, "flex flex-row")}>
+                <p>
+                  <b>BRI</b> 150401005572506
+                </p>
+                <Image
+                  src={Copy}
+                  alt="copy"
+                  width={25}
+                  height={25}
                   onClick={() => handleCopy("150401005572506")}
-                  className="border"
-                >
-                  copy
-                </button>
-                <br /> a.n. Made Laksmiani Dewi
-              </p>
+                  className="border mx-2"
+                ></Image>
+              </div>
+              a.n. Made Laksmiani Dewi
             </AnimateOnScroll>
-            <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-2 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75">
-              <p
-                className={cn(forum.className, "text-lg text-biru text-center")}
-              >
-                <b>Gopay</b> 087882072855
-                <button
-                  onClick={() => handleCopy("087882072855")}
-                  className="border"
-                >
-                  copy
-                </button>
-                <br /> a.n. Made Laksmiani Dewi
-              </p>
-            </AnimateOnScroll>
+            {config.withGopay && (
+              <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 py-1 w-3/4 bg-krem mb-2 rounded-lg bg-opacity-75 text-lg text-biru text-center  ">
+                <div className={cn(forum.className, "flex flex-row")}>
+                  <p>
+                    <b>Gopay </b> 087882072855
+                  </p>
+                  <Image
+                    src={Copy}
+                    alt="copy"
+                    width={25}
+                    height={25}
+                    onClick={() => handleCopy("087882072855")}
+                    className="border mx-2"
+                  ></Image>
+                </div>
+                a.n. Made Laksmiani Dewi
+              </AnimateOnScroll>
+            )}
 
             {config.showAlamatOnHadiah && (
               <AnimateOnScroll className="flex flex-col  items-center justify-center mx-5 px-2 h-28 w-3/4 bg-krem rounded-lg bg-opacity-75">
