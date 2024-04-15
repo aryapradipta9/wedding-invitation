@@ -55,6 +55,7 @@ export default function Home() {
   const [allComments, setAllComments] = useState<Array<Comment>>([]);
   const [kehadiran, setKehadiran] = useState<string>("Hadir");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isHomeLoading, setIsHomeLoading] = useState<boolean>(true);
 
   const [audioPlay, setAudioPlay] = useState<boolean>(true);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -84,7 +85,8 @@ export default function Home() {
   useEffect(() => {
     fetch("/api/" + id)
       .then((response) => response.json())
-      .then((data) => setGuest(data.data));
+      .then((data) => setGuest(data.data))
+      .finally(() => setIsHomeLoading(false));
   }, [id]);
 
   useEffect(() => {
@@ -118,8 +120,16 @@ export default function Home() {
     navigator.clipboard.writeText(text);
   }
 
-  if (guest === undefined) {
+  if (isHomeLoading) {
     return <>Loading</>;
+  }
+
+  if (guest === undefined) {
+    return (
+      <div className="text-center">
+        Undangan tidak ditemukan, mohon cek kembali link yang diberikan
+      </div>
+    );
   }
 
   const config = configUndangan[guest?.lokasiUndangan];
