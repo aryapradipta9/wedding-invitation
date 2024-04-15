@@ -6,6 +6,9 @@ import { cn } from "./utils";
 export const metadata: Metadata = {
   title: "Arya & Laksmi",
   description: "The wedding of Arya & Laksmi",
+  openGraph: {
+    images: "https://wedding.miyaa.app/og-image.jpg",
+  },
 };
 
 export default function RootLayout({
