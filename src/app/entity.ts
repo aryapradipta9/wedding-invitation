@@ -18,6 +18,7 @@ type ConfigType = {
   withGopay: boolean;
   showFamily: boolean;
   showGCal: boolean;
+  useBGM: boolean;
 };
 
 enum lokasiUndangan {
@@ -37,6 +38,7 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     showFamily: true,
     withGopay: true,
     showGCal: true,
+    useBGM: true,
   },
   bali: {
     namaEvent: "Acara Pawiwahan (Pernikahan)",
@@ -50,5 +52,6 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     showFamily: false,
     withGopay: false,
     showGCal: false,
+    useBGM: false,
   },
 };

@@ -19,9 +19,17 @@ import PageSix from "../../../public/page6.png";
 import PageSeven from "../../../public/page7.png";
 
 import Copy from "../../../public/copy.svg";
+import Pause from "../../../public/pause.svg";
+import Play from "../../../public/play.svg";
 
 import { useParams } from "next/navigation";
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Button } from "../button";
 import { Calendar } from "../calendar";
@@ -47,6 +55,25 @@ export default function Home() {
   const [allComments, setAllComments] = useState<Array<Comment>>([]);
   const [kehadiran, setKehadiran] = useState<string>("Hadir");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [audioPlay, setAudioPlay] = useState<boolean>(true);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const playPauseAudio = () => {
+    if (audioRef.current) {
+      if (audioPlay === true) {
+        setAudioPlay(false);
+        audioRef.current.pause();
+      } else {
+        setAudioPlay(true);
+        audioRef.current.play();
+      }
+    }
+  };
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  }, [undanganOpened]);
 
   useEffect(() => {
     const width = window.innerWidth <= 450 ? window.innerWidth : 450;
@@ -192,6 +219,26 @@ export default function Home() {
         </div>
         {/* End of Heading section */}
         <div className={!undanganOpened ? "hidden" : ""}>
+          {config.useBGM && (
+            <div>
+              <Image
+                src={audioPlay ? Pause : Play}
+                style={{
+                  position: "fixed",
+                  bottom: "20px",
+                  left: "10px",
+                  zIndex: "10",
+                }}
+                className="bg-white rounded-lg p-1"
+                alt="pauseplay"
+                width={25}
+                height={25}
+                onClick={playPauseAudio}
+              />
+              <audio ref={audioRef} src="bgm.m4a" />
+            </div>
+          )}
+
           <div
             style={{
               backgroundImage: `url(${PageTwo.src})`,
