@@ -53,6 +53,8 @@ export default function Home() {
   const [kehadiran, setKehadiran] = useState<string>("Hadir");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isHomeLoading, setIsHomeLoading] = useState<boolean>(true);
+  const [namaTamu, setNamaTamu] = useState<string>("");
+  const [showBanner, setShowBanner] = useState<boolean>(false);
 
   const [audioPlay, setAudioPlay] = useState<boolean>(true);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -85,6 +87,15 @@ export default function Home() {
       .then((data) => setGuest(data.data))
       .finally(() => setIsHomeLoading(false));
   }, [id]);
+
+  useEffect(() => {
+    if (
+      guest !== undefined &&
+      configUndangan[guest.lokasiUndangan].nameFreeText === false
+    ) {
+      setNamaTamu(guest?.fullName);
+    }
+  }, [guest]);
 
   useEffect(() => {
     listComments();
@@ -133,29 +144,28 @@ export default function Home() {
 
   const handleKirim = async () => {
     setIsLoading(true);
-    if (guest.accept === undefined) {
-      // first time. submit kehadiran first
-      let accept = true;
-      if (kehadiran == "Tidak hadir") {
-        accept = false;
-      }
-      await fetch("/api/" + id, {
-        method: "POST",
-        body: JSON.stringify({
-          accept: accept,
-        }),
-      });
-      setGuest({
-        ...guest,
-        accept: accept,
-      });
+
+    let accept = true;
+    if (kehadiran == "Tidak hadir") {
+      accept = false;
     }
+    await fetch("/api/" + id, {
+      method: "POST",
+      body: JSON.stringify({
+        accept: accept,
+        nama: namaTamu,
+      }),
+    });
+    // setGuest({
+    //   ...guest,
+    //   accept: accept,
+    // });
 
     if (komentar !== "") {
       await fetch("/api/comments", {
         method: "POST",
         body: JSON.stringify({
-          nama: guest.fullName,
+          nama: namaTamu,
           komentar: komentar,
         }),
       });
@@ -165,6 +175,7 @@ export default function Home() {
     }
 
     setIsLoading(false);
+    setShowBanner(true);
   };
 
   const handleKehadiranChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -193,7 +204,7 @@ export default function Home() {
             className="flex flex-col items-center justify-center h-screen"
           >
             <p className={cn(theSeason.className, "text-4xl text-krem")}>
-              DEAR {guest.shortName.toUpperCase()}
+              DEAR {guest.fullName.toUpperCase()}
             </p>
             <p className={cn(forum.className, "text-xl text-krem mb-8")}>
               {"you're invited to"}
@@ -574,7 +585,7 @@ export default function Home() {
               >
                 KONFIRMASI KEHADIRAN
               </p>
-              {guest.accept !== undefined ? (
+              {showBanner ? (
                 <p
                   className={cn(
                     forum.className,
@@ -586,12 +597,14 @@ export default function Home() {
               ) : undefined}
               <input
                 type="text"
-                value={guest.fullName}
+                value={namaTamu}
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-75"
+                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-75 border-2",
+                  namaTamu === "" ? "border-rose-300" : ""
                 )}
-                disabled={true}
+                onChange={(e) => setNamaTamu(e.target.value)}
+                disabled={!config.nameFreeText}
               ></input>
 
               <select
@@ -603,7 +616,6 @@ export default function Home() {
                 )}
                 value={kehadiran}
                 onChange={handleKehadiranChange}
-                disabled={guest.accept !== undefined}
               >
                 <option value={"Hadir"}>Hadir</option>
                 <option value={"Tidak hadir"}>Tidak hadir</option>
@@ -627,7 +639,7 @@ export default function Home() {
                   forum.className,
                   "w-1/2 place-self-center bg-birunavy"
                 )}
-                disabled={isLoading}
+                disabled={isLoading || namaTamu === ""}
               >
                 <p className={cn(forum.className, "text-xl text-putihgading")}>
                   {isLoading ? "Mengirim..." : "Kirim"}

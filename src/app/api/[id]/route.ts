@@ -8,7 +8,7 @@ export async function GET(
 ) {
   const result = await getSheetClient().spreadsheets.values.get({
     spreadsheetId: "125Dgz2B3M2fuW4-nmC2trUnEr9zDOS47agVDUQrbDrQ",
-    range: "Master!A2:E",
+    range: "Master!A2:D",
   });
 
   const values = result.data.values;
@@ -25,9 +25,8 @@ export async function GET(
     rowNo: match[0],
     id: match[1],
     fullName: match[2],
-    shortName: match[3],
-    lokasiUndangan: match[4],
-    accept: match[5],
+    lokasiUndangan: match[3],
+    accept: match[4],
   };
 
   return Response.json(
@@ -43,9 +42,10 @@ export async function POST(
   request: Request,
   { params: { id } }: { params: { id: string } }
 ) {
-  const { accept } = z
+  const { accept, nama } = z
     .object({
       accept: z.boolean(),
+      nama: z.string(),
     })
     .parse(await request.json());
 
@@ -53,7 +53,7 @@ export async function POST(
 
   const result = await getSheetClient().spreadsheets.values.get({
     spreadsheetId: "125Dgz2B3M2fuW4-nmC2trUnEr9zDOS47agVDUQrbDrQ",
-    range: "Master!A2:E",
+    range: "Master!A2:D",
   });
 
   const values = result.data.values;
@@ -71,17 +71,26 @@ export async function POST(
     rowNo: match[0],
     id: match[1],
     fullName: match[2],
-    shortName: match[3],
-    lokasiUndangan: match[4],
-    accept: match[5],
+    lokasiUndangan: match[3],
+    accept: match[4],
   };
 
-  await getSheetClient().spreadsheets.values.update({
+  // await getSheetClient().spreadsheets.values.update({
+  //   spreadsheetId: "125Dgz2B3M2fuW4-nmC2trUnEr9zDOS47agVDUQrbDrQ",
+  //   range: "Master!F" + guest.rowNo,
+  //   valueInputOption: "RAW",
+  //   requestBody: {
+  //     values: [[accept]],
+  //   },
+  // });
+
+  await getSheetClient().spreadsheets.values.append({
     spreadsheetId: "125Dgz2B3M2fuW4-nmC2trUnEr9zDOS47agVDUQrbDrQ",
-    range: "Master!F" + guest.rowNo,
-    valueInputOption: "RAW",
+    range: "Kehadiran!A:E",
+    insertDataOption: "INSERT_ROWS",
+    valueInputOption: "USER_ENTERED",
     requestBody: {
-      values: [[accept]],
+      values: [[new Date(), guest.id, guest.lokasiUndangan, nama, accept]],
     },
   });
 

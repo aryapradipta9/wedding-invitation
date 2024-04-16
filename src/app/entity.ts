@@ -2,7 +2,6 @@ export type Guest = {
   rowNo: number;
   id: string;
   fullName: string;
-  shortName: string;
   accept?: boolean;
   lokasiUndangan: lokasiUndangan;
 };
@@ -19,6 +18,7 @@ type ConfigType = {
   showFamily: boolean;
   showGCal: boolean;
   useBGM: boolean;
+  nameFreeText: boolean;
 };
 
 enum lokasiUndangan {
@@ -39,6 +39,7 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     withGopay: true,
     showGCal: true,
     useBGM: true,
+    nameFreeText: false,
   },
   bali: {
     namaEvent: "Acara Pawiwahan (Pernikahan)",
@@ -53,5 +54,6 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     withGopay: false,
     showGCal: false,
     useBGM: true,
+    nameFreeText: true,
   },
 };
