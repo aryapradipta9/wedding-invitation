@@ -2,9 +2,6 @@
 
 import Image from "next/image";
 import { cn } from "../utils";
-import Hero1 from "../../../public/1.jpg";
-import Hero2 from "../../../public/2.jpg";
-import Hero3 from "../../../public/3.png";
 import Bride from "../../../public/bride.jpg";
 import Groom from "../../../public/groom.jpg";
 
