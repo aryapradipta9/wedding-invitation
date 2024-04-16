@@ -52,6 +52,6 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     showFamily: false,
     withGopay: false,
     showGCal: false,
-    useBGM: false,
+    useBGM: true,
   },
 };
