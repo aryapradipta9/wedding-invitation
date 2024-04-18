@@ -10,6 +10,7 @@ type ConfigType = {
   namaEvent: string;
   tanggal: number;
   waktu: string;
+  waktu2?: string;
   tempat: string;
   alamat: string;
   mapsLink: string;
@@ -44,7 +45,8 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
   bali: {
     namaEvent: "Acara Pawiwahan (Pernikahan)",
     tanggal: 10,
-    waktu: "Upacara Adat 08.00 - 10.00 WITA\nResepsi 10.00 - 14.00 WITA",
+    waktu: "Upacara Adat 08.00 - 10.00 WITA",
+    waktu2: "Resepsi 10.00 - 14.00 WITA",
     tempat: "Griya Taksu Event Space",
     alamat:
       "Jl. Ir. Sutami, Br. Medahan, Kemenuh, Sukawati Gianyar, Bali 80582",

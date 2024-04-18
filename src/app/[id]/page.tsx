@@ -106,7 +106,7 @@ export default function Home() {
       .then((r) => r.json())
       .then((data) =>
         setAllComments(
-          (data.data as Array<Comment>).sort(
+          ((data.data as Array<Comment>) || []).sort(
             (a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp)
           )
         )
@@ -433,6 +433,14 @@ export default function Home() {
                 }}
               >
                 {config.waktu}
+              </p>
+              <p
+                className={cn(forum.className, "text-xl text-krem text-center")}
+                style={{
+                  textShadow: "2px 2px 4px #000000",
+                }}
+              >
+                {config.waktu2}
               </p>
               <p
                 className={cn(forum.className, "text-xl text-krem text-center")}
