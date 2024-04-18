@@ -201,7 +201,7 @@ export default function Home() {
               backgroundSize: "cover",
               width: videoWidth,
             }}
-            className="flex flex-col items-center justify-center h-screen"
+            className="flex flex-col items-center justify-center h-screen text-center"
           >
             <p className={cn(theSeason.className, "text-4xl text-krem")}>
               DEAR {guest.fullName.toUpperCase()}
