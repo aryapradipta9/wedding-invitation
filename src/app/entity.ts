@@ -52,7 +52,7 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
       "Jl. Ir. Sutami, Br. Medahan, Kemenuh, Sukawati Gianyar, Bali 80582",
     mapsLink: "https://maps.app.goo.gl/E65QEiBc1uRhnXA57",
     showAlamatOnHadiah: false,
-    showFamily: false,
+    showFamily: true,
     withGopay: false,
     showGCal: false,
     useBGM: true,

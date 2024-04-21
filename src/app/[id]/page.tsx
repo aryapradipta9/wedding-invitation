@@ -332,8 +332,7 @@ export default function Home() {
                       config.showFamily ? "" : "text-opacity-0"
                     )}
                   >
-                    Putra pertama dari Bapak Komang Krisnayuda & Ibu Erni
-                    Rustiani
+                    Putra pertama dari Komang Krisnayuda & Erni Rustiani
                   </p>
                 </AnimateOnScroll>
               </div>
@@ -372,8 +371,7 @@ export default function Home() {
                       config.showFamily ? "" : "text-opacity-0"
                     )}
                   >
-                    Putri pertama dari Bapak Made Sadiana & Ibu Ida Ayu
-                    Saraswati
+                    Putri pertama dari Made Sadiana & Ida Ayu Saraswati
                   </p>
                 </AnimateOnScroll>
               </div>
