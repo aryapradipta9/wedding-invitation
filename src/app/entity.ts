@@ -20,6 +20,7 @@ type ConfigType = {
   showGCal: boolean;
   useBGM: boolean;
   nameFreeText: boolean;
+  bgmSrc: string;
 };
 
 enum lokasiUndangan {
@@ -41,6 +42,7 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     showGCal: true,
     useBGM: true,
     nameFreeText: false,
+    bgmSrc: "bgm.m4a",
   },
   bali: {
     namaEvent: "Acara Pawiwahan (Pernikahan)",
@@ -57,5 +59,6 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     showGCal: false,
     useBGM: true,
     nameFreeText: true,
+    bgmSrc: "bgm-bali.m4a",
   },
 };

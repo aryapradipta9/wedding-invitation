@@ -253,7 +253,7 @@ export default function Home() {
                 height={25}
                 onClick={playPauseAudio}
               />
-              <audio ref={audioRef} src="bgm.m4a" />
+              <audio ref={audioRef} src={config.bgmSrc} />
             </div>
           )}
 
