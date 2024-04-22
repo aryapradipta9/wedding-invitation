@@ -606,11 +606,12 @@ export default function Home() {
                 value={namaTamu}
                 className={cn(
                   forum.className,
-                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-75 border-2",
+                  "bg-krem rounded-lg pl-2 mb-1 h-8 bg-opacity-75 border-2 placeholder:italic placeholder:text-gray-600",
                   namaTamu === "" ? "border-rose-300" : ""
                 )}
                 onChange={(e) => setNamaTamu(e.target.value)}
                 disabled={!config.nameFreeText}
+                placeholder="Masukkan nama..."
               ></input>
 
               <select
