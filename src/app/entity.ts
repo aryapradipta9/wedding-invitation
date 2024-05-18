@@ -35,7 +35,7 @@ export const configUndangan: Record<lokasiUndangan, ConfigType> = {
     waktu: "18.00 - 20.00 WIB",
     tempat: "The Gallery CIBIS Park",
     alamat: "Jl.TB Simatupang No. 2 Cilandak Timur, Jakarta Selatan",
-    mapsLink: "https://maps.app.goo.gl/A9GikxuTd7SJpn5o8",
+    mapsLink: "https://maps.app.goo.gl/mW2Dv3BKWUkeHAyF7",
     showAlamatOnHadiah: false,
     showFamily: true,
     withGopay: true,
